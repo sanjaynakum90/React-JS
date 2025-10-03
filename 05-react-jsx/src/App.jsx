@@ -1,6 +1,9 @@
 import Jsx from "./jsx";
 import State from "./State";
 import PrevState from "./PrevState";
+import Props from "./Props";
+import { classComponent, functionalComponent } from "./Component";
+
 
 function App() {
   return (
@@ -8,7 +11,13 @@ function App() {
       {/* <h1>hello</h1>;<Jsx /> */}
       {/* <Jsx></Jsx> */}
       {/* <State /> */}
-      <PrevState />
+      {/* <PrevState /> */}
+
+      {/* <props greeting={"good morning"} /> */}
+
+      <classComponent />
+      <functionalComponent />
+
     </>
   );
 }
