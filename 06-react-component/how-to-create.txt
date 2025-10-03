@@ -1,0 +1,7 @@
+-------------------how to create file and attached---------------
+
+1- src folder in a make component folder 
+2- in component folder in make file (name as per)[exa:Navbar] in a capital.
+3- in file(name)[exa:Navbar] command [rafce] and using a code
+4- in main file app.jsx in a import file.
+5- in function are into called file [exa:<Navbar/>] 
