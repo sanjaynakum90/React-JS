@@ -1,24 +1,10 @@
 import React from 'react'
 
-const apiKey = "90df1c01fce94bacab261c3679d521a8";
-
-
-document.getElementById("fetchBtn").addEventListener("click", () => fetchNews());
-
-const categorySelect = document.getElementById("categorySelect");
-const newsContainer = document.getElementById("newsContainer");
-const loadingSpinner = document.querySelector('.loading-spinner');
-
-loadingSpinner.style.display = 'inline-block';
-newsContainer.innerHTML = "";
-
-await new Promise(resolve => setTimeout(resolve, 100));
-
-const Card = async () => {
+const Card = () => {
     return (
         <div className='container'>
-            <div className='container mx-auto p-8 '>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-28 flex items-center"'>
+            <div className='container mx-auto px-4 '>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-28'>
                     {[...Array(8)].map((_, index) => (
                         <div
                             key={index}
@@ -67,7 +53,6 @@ const Card = async () => {
                             </div>
                         </div>
                     ))}
-                    
                 </div>
 
                 {/* Download Section */}
