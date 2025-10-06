@@ -7,7 +7,7 @@ const Navbar = () => {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse transform hover:scale-105 transition-transform duration-200">
             <img src="https://images.icon-icons.com/2699/PNG/512/reactjs_logo_icon_170805.png" className="h-14 animate-spin-slow" alt="React Logo" />
-            <span className="self-center text-2xl font-bold text-white">React App</span>
+            <span className="self-center text-2xl font-bold text-white">React</span>
           </a>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button type="button" className="text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-6 py-2.5 text-center transition-all duration-200 transform hover:scale-105 hover:shadow-xl">
