@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Usestate from './Hooks/Usestate'
 import Objectusestate from './Hooks/Objectusestate'
 import Lifecycle from './Hooks/LifeCycle'
+import UseEffect from './Hooks/UseEffect'
 
 
 const App = () => {
@@ -14,13 +15,13 @@ const App = () => {
 
       {/* <button onClick={() => setshow((prev) => !prev)}>show</button> */}
 
-      {<button onClick={() => setshow((prev) => !prev)}>
-        {show ? "hide" : "show"}{" "}
-      </button>}
+      {/* {<button onClick={() => setshow((prev) => !prev)}>{show ? "hide" : "show"}{" "}</button>} */}
 
-      {show && <Lifecycle />}
+      {/* {show && <Lifecycle />} */}
 
       {/* <Lifecycle /> */}
+
+      <UseEffect />
     </>
   )
 }
