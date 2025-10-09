@@ -3,6 +3,9 @@ import Usestate from './Hooks/Usestate'
 import Objectusestate from './Hooks/Objectusestate'
 import Lifecycle from './Hooks/LifeCycle'
 import UseEffect from './Hooks/UseEffect'
+import Onchange from './Evets/Onchange'
+import Onclick from './Evets/Onclick'
+import Onsubmit from './Evets/Onsubmit'
 
 
 const App = () => {
@@ -21,7 +24,13 @@ const App = () => {
 
       {/* <Lifecycle /> */}
 
-      <UseEffect />
+      {/* <UseEffect /> */}
+
+      {/* <Onchange /> */}
+
+      {/* <Onclick /> */}
+
+      <Onsubmit/>
     </>
   )
 }
