@@ -1,38 +1,68 @@
-import React, { useState } from 'react'
-import Usestate from './Hooks/Usestate'
-import Objectusestate from './Hooks/Objectusestate'
-import Lifecycle from './Hooks/LifeCycle'
-import UseEffect from './Hooks/UseEffect'
-import Onchange from './Evets/Onchange'
-import Onclick from './Evets/Onclick'
-import Onsubmit from './Evets/Onsubmit'
+// import UseState from "./hooks/UseState";
 
+// import { useState } from "react";
+import Conditional from "./events/Conditional";
+import OnChange from "./events/OnChange";
+import OnClick from "./events/OnClick";
+import OnSubmit from "./events/OnSubmit";
+import PassingArgument from "./events/PassingArgument";
+import List from "./lists/List";
+import Focus from "./refs/Focus";
+import Uncontrolled from "./refs/Uncontrolled";
+
+// import UseEffect from "./hooks/UseEffect";
+
+// import { useState } from "react";
+// import LifeCycle from "./hooks/LifeCycle";
+// import ObjectUseState from "./hooks/ObjectUseState";
 
 const App = () => {
+  // const [show, setShow] = useState(true);
 
-  const [show, setshow] = useState(true)
+  // const [input, setInput] = useState("");
   return (
     <>
-      {/* <Usestate /> */}
-      {/* <Objectusestate /> */}
+      {/* <UseState /> */}
+      {/* <ObjectUseState /> */}
 
-      {/* <button onClick={() => setshow((prev) => !prev)}>show</button> */}
+      {/* <button onClick={() => setShow((prev) => !prev)}>
+        {show ? "hide" : "show"}{" "}
+      </button> */}
 
-      {/* {<button onClick={() => setshow((prev) => !prev)}>{show ? "hide" : "show"}{" "}</button>} */}
-
-      {/* {show && <Lifecycle />} */}
-
-      {/* <Lifecycle /> */}
+      {/* {show && <LifeCycle />} */}
 
       {/* <UseEffect /> */}
 
-      {/* <Onchange /> */}
+      {/* events */}
 
-      {/* <Onclick /> */}
+      {/* <OnClick /> */}
 
-      <Onsubmit/>
+      {/* <OnChange /> */}
+
+      {/* <OnSubmit /> */}
+
+      {/* passing argument in event using props  */}
+
+      {/* <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
+
+      <PassingArgument name={input} /> */}
+
+      {/* conditional rendering example */}
+      {/* <Conditional /> */}
+
+      {/* lists */}
+
+      {/* <List /> */}
+
+      {/* ref */}
+      {/* <Focus /> */}
+      <Uncontrolled />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

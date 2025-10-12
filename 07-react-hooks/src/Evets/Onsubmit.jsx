@@ -4,7 +4,7 @@ const Onsubmit = () => {
     const [name, setName] = useState("")
 
     const handlesubmit = (e) => {
-        e.preventDefult()
+        // e.preventDefult()
         console.log(name);
 
     }
