@@ -38,15 +38,15 @@
 // ex-3
 
 const PassingArgument = ({ name }) => {
-    const handleClick = (name) => {
-        alert(`hi ${name}`);
-    };
+  const handleClick = (name) => {
+    alert(`hi ${name}`);
+  };
 
-    return (
-        <>
-            <button onClick={() => handleClick(name)}>click</button>
-        </>
-    );
+  return (
+    <>
+      <button onClick={() => handleClick(name)}>click</button>
+    </>
+  );
 };
 
 export default PassingArgument;

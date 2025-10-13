@@ -1,58 +1,44 @@
-import { useEffect } from "react";
-import { useState, Usestate } from "react";
+import { useEffect, useState } from "react";
 
+const LifeCycle = () => {
+  const [count, setCount] = useState(0);
 
-const Lifecycle = () => {
+  const [input, setInput] = useState("");
 
-    const [count, setcount] = useState(0)
+  // useEffect(() => {
+  //   console.log("this will print again and again");
+  // });
 
-    const [input, setinput] = useState("")
+  // useEffect(() => {
+  //   console.log("this will print again and again");
+  // }, []);
 
-    // useEffect(() => {
-    //     console.log("this will print again and again");
+  useEffect(() => {
+    console.log("this will print again and again");
 
-    // })
+    return () => {
+      console.log("this will unmount");
+    };
+  }, [count]);
 
+  return (
+    <>
+      {count}
 
-    // useEffect(() => {
-    //     console.log("this will print again and again");
+      <br />
+      <button onClick={() => setCount((count) => count + 1)}>increase</button>
+      <br />
+      <br />
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
 
-    // }, [count])
+      <br />
+      {input}
+    </>
+  );
+};
 
-
-    useEffect(() => {
-        console.log("this will print again and again");
-
-        return () => {
-            console.log("this will unmount");
-
-        }
-
-    }, [])
-
-    return (
-
-        <>
-            <br />
-            <br />
-            <br />
-            {count}
-            <br />
-
-            <button onClick={() => setcount((count) => count + 1)}>increase</button>
-            <br />
-            <br />
-            <br />
-
-            <input type="text" value={input} onChange={(e) => setinput(e.target.value)} />
-
-            <br />
-
-            {input}
-
-        </>
-    )
-}
-
-
-export default Lifecycle
+export default LifeCycle;

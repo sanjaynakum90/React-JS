@@ -1,11 +1,12 @@
 import { useState } from "react";
+import "./ObjectState.css";
 
 const ObjectUseState = () => {
   const [input, setInput] = useState({
     name: "",
     age: "",
     email: "",
-    id: "",
+    city: "",
   });
 
   const [person, setPerson] = useState([]);
@@ -21,7 +22,7 @@ const ObjectUseState = () => {
 
   const handleAdd = () => {
     setPerson((person) => [...person, input]);
-    setInput({ name: "", age: "", email: "", id: "" });
+    setInput({ name: "", age: "", email: "", city: "" });
   };
 
   console.log("person detail", person);
@@ -50,10 +51,10 @@ const ObjectUseState = () => {
       />
       <br />
       <input
-        type="number"
+        type="text"
         value={input.city}
-        placeholder="enter your id"
-        onChange={(e) => handleInputData("id", e)}
+        placeholder="enter your city"
+        onChange={(e) => handleInputData("city", e)}
       />
       <br />
 
@@ -65,7 +66,7 @@ const ObjectUseState = () => {
 
       <h1>email:{input.email}</h1>
 
-      <h1>id:{input.id}</h1>
+      <h1>city:{input.city}</h1>
 
       <table>
         <thead>
@@ -73,7 +74,7 @@ const ObjectUseState = () => {
             <th>name</th>
             <th>age</th>
             <th>email</th>
-            <th>ID</th>
+            <th>city</th>
           </tr>
         </thead>
         <tbody>
@@ -84,7 +85,7 @@ const ObjectUseState = () => {
                   <td>{user.name}</td>
                   <td>{user.age}</td>
                   <td>{user.email}</td>
-                  <td>{user.id}</td>
+                  <td>{user.city}</td>
                 </tr>
               </>
             );
