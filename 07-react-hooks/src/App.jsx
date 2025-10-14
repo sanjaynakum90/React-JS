@@ -9,6 +9,9 @@ import PassingArgument from "./events/PassingArgument";
 import List from "./List/List";
 import ObjectList from "./List/ObjectList";
 import Focus from "./Refs/Focus";
+import Controlled from "./Form/Controlled";
+import UnControlled from "./Form/UnControlled";
+import WorkingWithForm from "./Form/WorkingWithForm";
 
 // import UseEffect from "./hooks/UseEffect";
 
@@ -58,7 +61,13 @@ const App = () => {
 
       {/* <ObjectList /> */}
 
-      <Focus/>
+      {/* <Focus/> */}
+
+      {/* <Controlled/> */}
+
+      {/* <UnControlled/> */}
+
+      <WorkingWithForm/>
 
     </>
   );
