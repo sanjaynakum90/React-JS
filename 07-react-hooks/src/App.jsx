@@ -12,6 +12,9 @@ import Focus from "./Refs/Focus";
 import Controlled from "./Form/Controlled";
 import UnControlled from "./Form/UnControlled";
 import WorkingWithForm from "./Form/WorkingWithForm";
+import InlineCss from "./Styling/InlineCss";
+import External from "./Styling/External";
+import Module from "./Styling/Module";
 
 // import UseEffect from "./hooks/UseEffect";
 
@@ -67,7 +70,13 @@ const App = () => {
 
       {/* <UnControlled/> */}
 
-      <WorkingWithForm/>
+      {/* <WorkingWithForm/> */}
+
+      {/* <InlineCss/> */}
+
+      {/* <External/> */}
+
+      <Module/>
 
     </>
   );

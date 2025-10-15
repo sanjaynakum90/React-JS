@@ -53,8 +53,8 @@ const WorkingWithForms = () => {
             <table>
                 <thead>
                     <tr>
-                        <th>task</th>
-                        <th>description</th>
+                        <th>Task</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
