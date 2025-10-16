@@ -15,6 +15,7 @@ import WorkingWithForm from "./Form/WorkingWithForm";
 import InlineCss from "./Styling/InlineCss";
 import External from "./Styling/External";
 import Module from "./Styling/Module";
+import Validation from "./Form/Validation";
 
 // import UseEffect from "./hooks/UseEffect";
 
@@ -76,8 +77,9 @@ const App = () => {
 
       {/* <External/> */}
 
-      <Module/>
+      {/* <Module/> */}
 
+      <Validation />
     </>
   );
 };
