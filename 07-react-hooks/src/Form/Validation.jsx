@@ -51,12 +51,15 @@ const Validation = () => {
         <>
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder='enter your name' value={inputData.name} onChange={(e) => handleinputData("name", e)} />
-                {error.name && <h2 style={{ color: "red" }}>{error.name}</h2>}
+                <br />
+                {error.name && <h4 style={{ color: "red" }}>{error.name}</h4>}
                 <input type="email" placeholder='enter your email' value={inputData.email} onChange={(e) => handleinputData("email", e)} />
-                {error.email && <h2 style={{ color: "red" }}>{error.email}</h2>}
+                <br />
+                {error.email && <h4 style={{ color: "red" }}>{error.email}</h4>}
 
                 <input type="password" placeholder='enter your password' value={inputData.password} onChange={(e) => handleinputData("password", e)} />
-                {error.password && <h2 style={{ color: "red" }}>{error.password}</h2>}
+                <br />
+                {error.password && <h4 style={{ color: "red" }}>{error.password}</h4>}
 
                 <button type='submit'>submit</button>
             </form>
