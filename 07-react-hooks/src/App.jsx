@@ -16,6 +16,7 @@ import InlineCss from "./Styling/InlineCss";
 import External from "./Styling/External";
 import Module from "./Styling/Module";
 import Validation from "./Form/Validation";
+import FormikForm from "./Form/FormikForm";
 
 // import UseEffect from "./hooks/UseEffect";
 
@@ -79,7 +80,10 @@ const App = () => {
 
       {/* <Module/> */}
 
-      <Validation />
+      {/* <Validation /> */}
+
+      <FormikForm 
+      />
     </>
   );
 };
