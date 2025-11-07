@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Inputform from './Inputform'
+import ListTodo from './ListTodo'
 
 const App = () => {
   const [todoData, setodoData] = useState([])
@@ -17,7 +18,13 @@ const App = () => {
 
   console.log("todoData", todoData);
 
-  return <Inputform addTodo={addTodo} />
+  return(
+    <>
+    <Inputform addTodo={addTodo}/>
+    
+    <ListTodo todo={todoData}/>
+    </>
+  )
 
 }
 
