@@ -1,44 +1,56 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from "react";
 
-const Inputform = ({addTodo}) => {
-    const [input, setinput] = useState({
+const InputForm = ({ addTodo, editVal }) => {
+    const [input, setInput] = useState({
         task: "",
-        description: ""
-    })
+        description: "",
+    });
 
-    
-    const handleInputData = (identifire, e) => {
-        setinput((prev) => {
+    useEffect(() => {
+        editVal ? setInput(editVal) : null;
+    }, [editVal]);
+
+    const handleInputData = (identifier, e) => {
+        setInput((prev) => {
             return {
                 ...prev,
-                [identifire]: e.target.value
+                [identifier]: e.target.value,
             };
-        })
-    }
-    
-    const handleSubmit =(e)=>{
-        e.preventDefault(),
+        });
+    };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
         addTodo(input);
-    }
+
+        setInput({ task: "", description: "" });
+    };
+
     return (
         <>
             <form onSubmit={handleSubmit}>
-
-                <input type="text" placeholder='task' value={input.task} onChange={(e) => handleInputData("task", e)} />
-
+                <input
+                    type="text"
+                    placeholder="task"
+                    value={input.task}
+                    onChange={(e) => handleInputData("task", e)}
+                />
                 <br />
                 <br />
                 <br />
-                <input type="text" placeholder='descreption' value={input.description} onChange={(e) => handleInputData("description", e)} />
+                <input
+                    type="text"
+                    placeholder="description"
+                    value={input.description}
+                    onChange={(e) => handleInputData("description", e)}
+                />
                 <br />
                 <br />
                 <br />
-                <button type='submit'>add</button>
+                <button type="submit">{editVal ? "update" : "add"}</button>
             </form>
-
         </>
-    )
-}
+    );
+};
 
-export default Inputform
+export default InputForm;

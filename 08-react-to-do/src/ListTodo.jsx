@@ -1,6 +1,6 @@
 import React from "react";
 
-const ListTodo = ({ todo }) => {
+const ListTodo = ({ todo, editTodo, deleteTodo }) => {
     return (
         <>
             <table border="1px solid black">
@@ -18,10 +18,10 @@ const ListTodo = ({ todo }) => {
                                 <td>{todo.task}</td>
                                 <td>{todo.description}</td>
                                 <td>
-                                    <button>edit</button>
+                                    <button onClick={() => editTodo(todo.id)}>edit</button>
                                 </td>
                                 <td>
-                                    <button>delete</button>
+                                    <button onClick={() => deleteTodo(todo.id)}>delete</button>
                                 </td>
                             </tr>
                         );
