@@ -1,22 +1,30 @@
-.stats {
+.statsLayout {
+    width: min(920px, 94%);
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 25px;
+    justify-content: center;
+    gap: 18px;
+    margin: 0 auto;
+    font-family: "Poppins", sans-serif;
 }
 
-
-.statbox {
+.statsCard {
     flex: 1;
     background: white;
-    margin: 0 10px;
-    padding: 25px 10px;
+    padding: 18px 16px;
+    border-radius: 10px;
     text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 8px 20px rgba(33, 48, 77, 0.06);
+    border: 1px solid rgba(34, 42, 52, 0.04);
 }
 
+.pendingNum {
+    color: #f59e0b;
+}
 
-.statnumber {
-    font-size: 28px;
-    font-weight: 700;
+.completedNum {
+    color: #10b981;
+}
+
+.totalNum {
+    color: #3b82f6;
 }
