@@ -1,7 +1,6 @@
 import React, { Children, lazy } from 'react';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "../routes/MainLayout";
-import Home from "./component/Home";
 import About from "./component/About";
 import Service from "./component/Service";
 import ErrorPage from "./component/ErrorPage";
