@@ -1,12 +1,16 @@
-import React, { Children } from 'react';
+import React, { Children, lazy } from 'react';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "../routes/MainLayout";
 import Home from "./component/Home";
-import Header from './component/Header';
 import About from "./component/About";
 import Service from "./component/Service";
-import Product from "./component/Product";
 import ErrorPage from "./component/ErrorPage";
+import { Suspense } from 'react';
+import ModernLoader from './component/Loading';
+
+
+const Home = lazy(() => import("./component/Home"))
+const Product = lazy(() => import("./component/Product"))
 
 
 
@@ -39,7 +43,9 @@ const App = () => {
   return (
 
     <>
-    <RouterProvider router={router}/>
+      <Suspense fallback={<ModernLoader />}>
+        <RouterProvider router={router} />
+      </Suspense>
     </>
   )
 }
