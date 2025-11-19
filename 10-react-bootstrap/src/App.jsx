@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from "./Component/Navbar"
 import Carousel from "./Component/Carousel"
 import About from './Component/About'
+import Packages from './Component/Packages'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <main>
         <Carousel />
         <About />
+        <Packages/>
       </main>
     </>
   )

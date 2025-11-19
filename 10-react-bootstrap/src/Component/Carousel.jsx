@@ -26,6 +26,42 @@ function UncontrolledExample() {
             descriptions:
                 "Experience stunning mountain views, hiking trails, and nature’s beauty",
         },
+        {
+            id: 4,
+            title: "Tropical Beach Escape",
+            image: "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg",
+            descriptions:
+                "Relax on white sandy beaches with turquoise waters and warm tropical breezes",
+        },
+        {
+            id: 5,
+            title: "Safari Wildlife Expedition",
+            image: "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg",
+            descriptions:
+                "Get close to exotic wildlife and breathtaking landscapes on an African safari",
+        },
+        {
+            id: 6,
+            title: "Snowy Winter Wonderland",
+            image: "https://images.pexels.com/photos/3225517/pexels-photo-3225517.jpeg",
+            descriptions:
+                "Experience snowy forests, cozy cabins, and magical winter views",
+        },
+        {
+            id: 7,
+            title: "Island Hopping Adventure",
+            image: "https://images.pexels.com/photos/210205/pexels-photo-210205.jpeg",
+            descriptions:
+                "Discover hidden islands, crystal-clear waters, and unforgettable sunsets",
+        },
+        {
+            id: 8,
+            title: "Desert Dune Exploration",
+            image: "https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg",
+            descriptions:
+                "Ride across golden sand dunes and experience the vast beauty of the desert",
+        }
+
     ];
 
     return (
