@@ -6,7 +6,7 @@ import { FaPlaneDeparture } from "react-icons/fa";
 
 function BasicExample() {
   return (
-    <Navbar bg="primary" variant="dark" expand="lg" sticky="top">
+    <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
       <Container>
        
         <Navbar.Brand href="#home" className="d-flex align-items-center">
