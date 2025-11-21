@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Contact from "./Contact";
+import Mainfooter from "./Mainfooter"
 
 const Footer = () => {
   return (
@@ -23,6 +24,11 @@ const Footer = () => {
             loading="lazy"
           ></iframe>
         </Col>
+      </Row>
+      <Row>
+
+        <Mainfooter />
+
       </Row>
     </Container>
   );

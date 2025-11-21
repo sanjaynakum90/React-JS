@@ -6,12 +6,12 @@ import { FaPlaneDeparture } from "react-icons/fa";
 
 function BasicExample() {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+    <Navbar className="bg-dark" expand="lg" sticky="top">
       <Container>
        
         <Navbar.Brand href="#home" className="d-flex align-items-center">
           <FaPlaneDeparture className="me-2 fs-3" />
-          TravelGo
+          WanderWorld
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -34,7 +34,7 @@ function BasicExample() {
             <Button
               href="#book"
               variant="light"
-              className="ms-lg-3 fw-semibold px-4"
+              className="ms-lg-3 fw-semibold px-4 text-dark"
             >
               Book Now
             </Button>

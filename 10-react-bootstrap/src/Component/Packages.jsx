@@ -65,7 +65,7 @@ function Packages() {
                 {packages.map((p) => {
                     return (
                         <Col md={4} key={p.id}>
-                            <Card className="rounded-3" style={{ height: "100%", minHeight: "500px" }}>
+                            <Card className="rounded-3 bg-dark text-white border-white" style={{ height: "100%", minHeight: "500px" }}>
                                 <Image
                                     className="rounded-3"
                                     src={p.image}

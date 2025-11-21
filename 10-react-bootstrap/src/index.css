@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #212529 !important;
+  color: white !important;
+}
+
+a {
+  color: white !important;
+}
+
+
+footer .text-light-50 {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+footer .text-light-50:hover {
+  color: #ffffff !important;
+  text-decoration: none;
+}
