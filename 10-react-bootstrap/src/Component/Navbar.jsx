@@ -10,7 +10,8 @@ function BasicExample() {
       <Container>
        
         <Navbar.Brand href="#home" className="d-flex align-items-center">
-          <FaPlaneDeparture className="me-2 fs-3" />
+          {/* <FaPlaneDeparture className="me-2 fs-3" /> */}
+          <img src="" alt="" />
           WanderWorld
         </Navbar.Brand>
 
