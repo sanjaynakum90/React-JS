@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { expense } from './ExpenseContext'
 
 const InputForm = () => {
@@ -20,14 +20,16 @@ const InputForm = () => {
 
     }
 
-    const { Add } = useContext(expense);
+    const { Add, editValue } = useContext(expense);
+
+    useEffect(() => {
+        editValue ? setInput(editValue) : ""
+    }, [editValue])
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!input.title || !input.amount || !input.category) {
-            alert("input field is required")
-        }
+        
         Add(input)
         setInput({ title: "", amount: 0, type: "", category: "" })
     }
@@ -60,7 +62,7 @@ const InputForm = () => {
                 <br />
                 <br />
                 <br />
-                <button type='submit'>Add</button>
+                <button type='submit'>{editValue ? "update" : "Add"}</button>
             </form>
         </>
     )
