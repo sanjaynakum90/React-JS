@@ -5,6 +5,9 @@ import { Table, Button, Container, Form, Row, Col } from "react-bootstrap";
 const ExpenseList = () => {
     const { list, update, deleteData } = useContext(expense);
 
+    // If list is undefined → use empty array instead
+    const safeList = Array.isArray(list) ? list : [];
+
     const [expenseQuery, setExpenseQuery] = useState({
         search: "",
         type: "all",
@@ -19,7 +22,7 @@ const ExpenseList = () => {
         }));
     };
 
-    const filterList = list
+    const filterList = safeList
         .filter((l) =>
             l.title.toLowerCase().includes(expenseQuery.search.toLowerCase())
         )
@@ -45,7 +48,6 @@ const ExpenseList = () => {
 
                 <Form>
                     <Row className="gy-2">
-                        {/* Search */}
                         <Col md={3}>
                             <Form.Control
                                 type="text"
@@ -55,7 +57,6 @@ const ExpenseList = () => {
                             />
                         </Col>
 
-                        {/* Type */}
                         <Col md={3}>
                             <Form.Select
                                 value={expenseQuery.type}
@@ -67,7 +68,6 @@ const ExpenseList = () => {
                             </Form.Select>
                         </Col>
 
-                        {/* Category */}
                         <Col md={3}>
                             <Form.Select
                                 value={expenseQuery.category}
@@ -81,7 +81,6 @@ const ExpenseList = () => {
                             </Form.Select>
                         </Col>
 
-                        {/* Sort */}
                         <Col md={3}>
                             <Form.Select
                                 value={expenseQuery.sortedBy}
