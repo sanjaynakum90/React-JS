@@ -22,7 +22,10 @@ const ExpenseContext = ({ children }) => {
         },
     ];
 
-    const [data, setData] = useState(initialState);
+    const [data, setData] = useState(() => {
+        const saved = localStorage.getItem("Expenses")
+        return saved ? JSON.parse(saved) : initialState
+    });
     const [editValue, setEditValue] = useState(null);
 
     const Add = (input) => {

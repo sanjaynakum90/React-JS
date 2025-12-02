@@ -6,31 +6,34 @@ const ExpenseData = () => {
     const { Credit, Debit, balance } = useContext(expense);
 
     return (
-        <Container>
-
-            <Row className="my-4">
-                <Col md={4}>
-                    <Card className="p-3 text-center shadow-sm">
+        <Container className="">
+            <Row className="my-4 text-center">
+                <Col xs={8} className="mb-2">
+                    <Card className="p-3 text-center shadow-sm h-100">
                         <h5>Total Credit</h5>
                         <h2 className="text-success">{Credit}</h2>
                     </Card>
                 </Col>
-
-                <Col md={4}>
-                    <Card className="p-3 text-center shadow-sm">
+            </Row>
+            <Row className="my-4 ">
+                <Col xs={8} className="mb-2">
+                    <Card className="p-3 text-center shadow-sm h-100">
                         <h5>Total Debit</h5>
                         <h2 className="text-danger">{Debit}</h2>
                     </Card>
                 </Col>
+            </Row>
 
-                <Col md={4}>
-                    <Card className="p-3 text-center shadow-sm">
+
+            <Row className="my-4 ">
+                <Col xs={8} className="mb-2">
+                    <Card className="p-3 text-center shadow-sm h-100">
                         <h5>Balance</h5>
                         <h2>{balance}</h2>
                     </Card>
                 </Col>
             </Row>
-        </Container>
+        </Container >
     );
 };
 
