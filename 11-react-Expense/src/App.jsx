@@ -9,7 +9,6 @@ const App = () => {
     <>
       <ExpenseContext>
         <InputForm />
-        {/* <ExpenseData /> */}
         <ExpenseList />
       </ExpenseContext>
     </>
