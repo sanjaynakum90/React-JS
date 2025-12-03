@@ -135,8 +135,6 @@
 
 
 // now stateManagement with useReducer hook
-
-
 import { createContext, useReducer, useEffect } from "react"
 
 export const expense = createContext({
@@ -182,37 +180,88 @@ const init = () => {
 
 const expenseReducer = (state, action) => {
 
+
     switch (action.type) {
 
         case "add": {
 
             const input = action.payload
 
-            const newItem = {
-                id: new Date().getTime(),
-                title: input.title,
-                amount: input.amount,
-                type: input.type,
-                category: input.category
+
+            if (state.editValue != null) {
+
+                const updateList = state.list.map((item) => item.id === state.editValue.id ? { ...item, title: input.title, amount: input.amount, type: input.type, category: input.category } : item)
+
+
+                return {
+                    ...state,
+                    list: updateList,
+                    editValue: null
+                }
+
+            } else {
+                const newItem = {
+                    id: new Date().getTime(),
+                    title: input.title,
+                    amount: input.amount,
+                    type: input.type,
+                    category: input.category
+                }
+
+
+                return {
+                    ...state,
+                    list: [...state.list, newItem]
+                }
+
             }
-            return {
-                ...state,
-                list: [...state.list, newItem]
-            }
+
         }
 
+        case "edit": {
+
+            const item = action.payload
+
+            return {
+                ...state,
+                editValue: item
+            }
+
+        }
+
+        case "delete": {
+
+            const id = action.payload
+
+            const remainList = state.list.filter((l) => l.id !== id)
+
+            return {
+                ...state,
+                list: remainList,
+            }
+
+        }
+
+
         default:
+
             return state
     }
 
 }
 
+
+
 const ExpenseContext = ({ children }) => {
+
 
     const [state, dispatch] = useReducer(expenseReducer, initialValue, init)
 
-    const useEffect = (() => {
+
+    useEffect(() => {
+
         localStorage.setItem("expenses", JSON.stringify(state.list))
+
     }, [state.list])
 
 
@@ -230,9 +279,57 @@ const ExpenseContext = ({ children }) => {
 
     }
 
-    const value = {
-        add
+
+
+    const update = (id) => {
+        const item = state.list.find((l) => l.id === id)
+        dispatch({
+            type: "edit",
+            payload: item
+        })
+
     }
+
+
+    const deleteData = (id) => {
+        dispatch({
+            type: "delete",
+            payload: id
+        })
+
+    }
+
+    const credit = state.list.filter((l) => l.type === "credit").reduce((acc, curr) => {
+
+        acc = acc + Number(curr.amount)
+
+        return acc
+    }, 0)
+
+
+    const debit = state.list.filter((l) => l.type === "debit").reduce((acc, curr) => {
+
+        acc = acc + Number(curr.amount)
+
+        return acc
+    }, 0)
+
+
+    const balance = credit - debit
+
+
+    const value = {
+        add,
+        update,
+        deleteData,
+        list: state.list,
+        editValue: state.editValue,
+        credit,
+        debit,
+        balance
+    }
+
+
     return <expense.Provider value={value} >{children}</expense.Provider>
 
 }

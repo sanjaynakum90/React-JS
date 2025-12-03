@@ -3,7 +3,7 @@ import { expense } from "./ExpenseContext";
 import { Card, Row, Col, Container } from "react-bootstrap";
 
 const ExpenseData = () => {
-    const { Credit, Debit, balance } = useContext(expense);
+    const { credit, debit, balance } = useContext(expense);
 
     return (
         <Container className="">
@@ -11,7 +11,7 @@ const ExpenseData = () => {
                 <Col xs={8} className="mb-2">
                     <Card className="p-3 text-center shadow-sm h-100">
                         <h5>Total Credit</h5>
-                        <h2 className="text-success">{Credit}</h2>
+                        <h2 className="text-success">{credit}</h2>
                     </Card>
                 </Col>
             </Row>
@@ -19,7 +19,7 @@ const ExpenseData = () => {
                 <Col xs={8} className="mb-2">
                     <Card className="p-3 text-center shadow-sm h-100">
                         <h5>Total Debit</h5>
-                        <h2 className="text-danger">{Debit}</h2>
+                        <h2 className="text-danger">{debit}</h2>
                     </Card>
                 </Col>
             </Row>

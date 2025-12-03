@@ -12,7 +12,7 @@ const InputForm = () => {
         category: "",
     });
 
-    const { Add, editValue } = useContext(expense);
+    const { add, editValue } = useContext(expense);
 
     useEffect(() => {
         if (editValue) setInput(editValue);
@@ -24,7 +24,7 @@ const InputForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        Add(input);
+        add(input);
         setInput({ title: "", amount: "", type: "debit", category: "" });
     };
 
@@ -81,7 +81,7 @@ const InputForm = () => {
                                     </Form.Group>
 
                                     <Button type="submit" variant="primary" className="w-100">
-                                        {editValue ? "Update" : "Add"}
+                                        {editValue ? "update" : "add"}
                                     </Button>
                                 </Form>
                             </Card>
