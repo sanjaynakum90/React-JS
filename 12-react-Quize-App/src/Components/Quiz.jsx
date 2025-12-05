@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import QUESTIONS from "../../qns.js"
+import QuizTimer from './QuizTimer.jsx'
 
 const Quiz = () => {
-
-
-    // const [activeIndex,setActiveIndex] = useState(0)
 
     const [userAnswer, setUserAnswer] = useState([])
 
@@ -12,22 +10,19 @@ const Quiz = () => {
     const qnsIndex = userAnswer.length
 
 
-    const handleAnswer = (ans) => {
+    const handleAnswer = useCallback((ans) => {
         setUserAnswer((prevAnswer) => [...prevAnswer, ans])
 
-    }
+    }, [])
 
 
     const quizComplete = qnsIndex === QUESTIONS.length
 
 
-    if (quizComplete) {
-        return (
-            <>
-                <h1>Quiz Completed</h1>
 
-            </>
-        )
+
+    if (quizComplete) {
+        return <h1>Quiz Completed</h1>
     }
 
     const shuffledOption = [...QUESTIONS[qnsIndex].option]
@@ -36,12 +31,14 @@ const Quiz = () => {
 
     console.log("user answer", userAnswer)
 
+    const handleSkip = useCallback(() => handleAnswer(null), [handleAnswer])
 
 
 
     return (
 
         <>
+            <QuizTimer key={qnsIndex} timer={15000} onTimeOut={handleSkip} />
             <h1>{QUESTIONS[qnsIndex].qns}</h1>
 
             <ul>
