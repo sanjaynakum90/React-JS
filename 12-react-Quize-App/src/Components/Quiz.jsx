@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import { useCallback, useState } from 'react'
 import QUESTIONS from "../../qns.js"
 import QuizTimer from './QuizTimer.jsx'
 
