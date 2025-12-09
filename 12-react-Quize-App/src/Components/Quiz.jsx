@@ -7,30 +7,12 @@ const Quiz = () => {
 
     const [userAnswer, setUserAnswer] = useState([]);
 
-    const [answerState, setAnswerState] = useState("");
-
-    const qnsIndex =
-        answerState === "" ? userAnswer.length : userAnswer.length - 1;
+    const qnsIndex = userAnswer.length
 
     const handleAnswer = useCallback((ans) => {
         setUserAnswer((prevAnswer) => [...prevAnswer, ans]);
-
-        setAnswerState("selected");
-
-        setTimeout(() => {
-            if (ans === QUESTIONS[qnsIndex].option[0]) {
-                setAnswerState("correct");
-            } else {
-                setAnswerState("wrong");
-            }
-
-            setTimeout(() => {
-                setAnswerState("");
-            }, 1000);
-        }, 1000);
     }, []);
 
-    console.log(answerState);
 
     const quizComplete = qnsIndex === QUESTIONS.length;
 
@@ -50,12 +32,9 @@ const Quiz = () => {
         <>
             <Question
                 key={qnsIndex}
+                index={qnsIndex}
                 onSkip={handleSkip}
-                qns={[QUESTIONS[qnsIndex].qns]}
-                selected={userAnswer[userAnswer.length - 1]}
-                answerState={answerState}
                 handleAnswer={handleAnswer}
-                answer={[...QUESTIONS[qnsIndex].option]}
             />
         </>
     );
