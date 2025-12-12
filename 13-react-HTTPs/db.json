@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Amit Patel",
+    "age": 20,
+    "grade": "A",
+    "course": "Computer Science"
+  },
+  {
+    "id": 2,
+    "name": "Riya Sharma",
+    "age": 19,
+    "grade": "B+",
+    "course": "Information Technology"
+  },
+  {
+    "id": 3,
+    "name": "Karan Mehta",
+    "age": 21,
+    "grade": "A-",
+    "course": "Mechanical Engineering"
+  },
+  {
+    "id": 4,
+    "name": "Priya Singh",
+    "age": 22,
+    "grade": "B",
+    "course": "Civil Engineering"
+  },
+  {
+    "id": 5,
+    "name": "Harsh Desai",
+    "age": 20,
+    "grade": "A+",
+    "course": "Electronics"
+  },
+  {
+    "id": 6,
+    "name": "Neha Verma",
+    "age": 18,
+    "grade": "B-",
+    "course": "Architecture"
+  },
+  {
+    "id": 7,
+    "name": "Vivek Kumar",
+    "age": 23,
+    "grade": "C+",
+    "course": "BBA"
+  },
+  {
+    "id": 8,
+    "name": "Sneha Joshi",
+    "age": 19,
+    "grade": "A",
+    "course": "Biotechnology"
+  },
+  {
+    "id": 9,
+    "name": "Rohan Gupta",
+    "age": 20,
+    "grade": "B+",
+    "course": "MBA"
+  },
+  {
+    "id": 10,
+    "name": "Mansi Shah",
+    "age": 21,
+    "grade": "A-",
+    "course": "Data Science"
+  }
+]
