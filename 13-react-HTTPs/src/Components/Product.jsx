@@ -1,60 +1,123 @@
-import React, { useEffect, useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
+import React, { useEffect, useState } from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Loading from "./Loading";
+import axios from "axios";
 
 const Product = () => {
-
     const [product, setProduct] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
+
+    //   useEffect(() => {
+    //     const productData = async () => {
+    //       setLoading(true);
+
+    //       try {
+    //         const res = await fetch("http://localhost:5000/products");
+
+    //         if (!res.ok) {
+    //           throw new Error("failed to fetch product data");
+    //         }
+
+    //         const data = await res.json();
+
+    //         if (data.length <= 0) {
+    //           throw new Error("no product data found");
+    //         }
+
+    //         setProduct(data);
+    //       } catch (error) {
+    //         setError(error.message);
+    //       }
+
+    //       setLoading(false);
+    //     };
+
+    //     productData();
+    //   }, []);
 
     useEffect(() => {
-
-        const productData = async () => {
+        const fetchProductData = async () => {
             try {
-                const res = await fetch("http://localhost:5000/products");
-                const data = await res.json();
+                setLoading(true);
+
+                const res = await axios("http://localhost:5000/products");
+
+                const data = res.data;
+
+                if (data.length <= 0) {
+                    setError("no data found");
+                }
+
                 setProduct(data);
             } catch (error) {
                 console.log(error);
+
+                if (error.status === 404) {
+                    setError("invalid url");
+                } else {
+                    setError(error.message);
+                }
+            } finally {
+                setLoading(false);
             }
         };
 
-        productData();
+        fetchProductData();
     }, []);
 
+    if (loading) {
+        return <Loading />;
+    }
+
+    if (error) {
+        return <p>{error}</p>;
+    }
+
     return (
-        <Container className="py-4">
-          
-            <div className="d-flex flex-wrap gap-4 justify-content-center">
+        <>
+            {/* {product.map((prod)=>{
+        return (    
 
-                {product.map((prod) => (
-                    <Card 
-                        key={prod.id} 
-                        style={{ width: '18rem' }} 
-                        className="shadow-sm border-0"
-                    >
-                        <Card.Img 
-                            variant="top" 
-                            src={prod.image} 
-                            style={{ height: "200px", objectFit: "cover" }}
-                            alt={prod.Title}
-                        />
+            <>
+            <li key={prod.id}>{prod.name}</li>
+            <img src={prod.image} alt={prod.name} width={200} />
+            <li>{prod.price}</li>
+            </>
+        )
+    })} */}
 
-                        <Card.Body>
-                            <Card.Title className="fw-bold">{prod.name}</Card.Title>
-                            <Card.Text className="text-muted">{prod.description}</Card.Text>
-
-                            <h4 className="text-primary mb-3">${prod.price}</h4>
-
-                            <Button variant="primary" className="w-100">
-                                BUY NOW
-                            </Button>
-                        </Card.Body>
-                    </Card>
-                ))}
-
-            </div>
-        </Container>
+            <Container>
+                <Row>
+                    {product.map((prod) => {
+                        return (
+                            <>
+                                <Col md={3} sm={6} key={prod.id}>
+                                    <Card>
+                                        <Card.Img
+                                            variant="top"
+                                            src={prod.image}
+                                            alt={prod.name}
+                                            style={{ maxHeight: "200px" }}
+                                        />
+                                        <Card.Body>
+                                            <Card.Title>{prod.name}</Card.Title>
+                                            <Card.Text>{prod.description}</Card.Text>
+                                            <Card.Title> ₹{prod.price}</Card.Title>
+                                            <Button variant="primary">Add to card</Button>
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            </>
+                        );
+                    })}
+                </Row>
+            </Container>
+        </>
     );
 };
 

@@ -3,242 +3,162 @@
     {
       "id": 1,
       "name": "Wireless Bluetooth Headphones",
-      "category": "Electronics",
+      "category": "Audio",
       "price": 2499,
       "description": "High-quality wireless headphones with deep bass and long battery life.",
-      "image": "https://images.pexels.com/photos/705164/pexels-photo-705164.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "image": "https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg"
     },
     {
       "id": 2,
       "name": "Smartphone",
       "category": "Electronics",
       "price": 18999,
-      "description": "A powerful smartphone with a stunning display and fast performance.",
-      "image": "https://images.pexels.com/photos/4123561/pexels-photo-4123561.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "Powerful smartphone with a clear display and smooth performance.",
+      "image": "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg"
     },
     {
       "id": 3,
       "name": "Laptop",
       "category": "Electronics",
       "price": 45999,
-      "description": "Lightweight and high-speed laptop ideal for work and gaming.",
-      "image": "https://images.pexels.com/photos/4073705/pexels-photo-4073705.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "Lightweight laptop suitable for work and productivity.",
+      "image": "https://images.pexels.com/photos/18105/pexels-photo.jpg"
     },
     {
       "id": 4,
       "name": "Smart Watch",
       "category": "Wearables",
       "price": 3499,
-      "description": "Track fitness, calls, and notifications right on your wrist.",
-      "image": "https://images.pexels.com/photos/16247545/pexels-photo-16247545.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "Smartwatch with fitness tracking and notifications.",
+      "image": "https://images.pexels.com/photos/267394/pexels-photo-267394.jpeg"
     },
     {
       "id": 5,
       "name": "Tablet",
       "category": "Electronics",
       "price": 15999,
-      "description": "Portable tablet perfect for entertainment and productivity.",
-      "image": "https://images.pexels.com/photos/9379075/pexels-photo-9379075.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "Portable tablet for entertainment and everyday tasks.",
+      "image": "https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg"
     },
     {
       "id": 6,
       "name": "Portable Bluetooth Speaker",
       "category": "Audio",
       "price": 1999,
-      "description": "Compact speaker with loud, crystal-clear sound.",
-      "image": "https://images.pexels.com/photos/705164/pexels-photo-705164.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "Compact speaker with loud and clear sound.",
+      "image": "https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg"
     },
     {
       "id": 7,
       "name": "Gaming Console",
       "category": "Gaming",
       "price": 29999,
-      "description": "Next-gen gaming console with ultra-fast loading and 4K support.",
-      "image": "https://images.pexels.com/photos/705164/pexels-photo-705164.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "High-performance gaming console for immersive gameplay.",
+      "image": "https://images.pexels.com/photos/1298601/pexels-photo-1298601.jpeg"
     },
     {
       "id": 8,
       "name": "Digital Camera",
       "category": "Photography",
       "price": 25999,
-      "description": "Capture stunning photos and videos with high resolution.",
-      "image": "https://images.pexels.com/photos/705164/pexels-photo-705164.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "High-resolution camera for photos and videos.",
+      "image": "https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg"
     },
     {
       "id": 9,
       "name": "Wireless Mouse",
       "category": "Accessories",
       "price": 499,
-      "description": "Smooth and responsive wireless mouse for everyday use.",
-      "image": "https://images.pexels.com/photos/9379075/pexels-photo-9379075.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "Ergonomic wireless mouse with smooth control.",
+      "image": "https://images.pexels.com/photos/2115256/pexels-photo-2115256.jpeg"
     },
     {
       "id": 10,
       "name": "Keyboard",
       "category": "Accessories",
       "price": 799,
-      "description": "Durable keyboard with quiet keys and comfortable typing feel.",
-      "image": "https://images.pexels.com/photos/705164/pexels-photo-705164.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "Durable keyboard with comfortable typing experience.",
+      "image": "https://images.pexels.com/photos/2115217/pexels-photo-2115217.jpeg"
     },
     {
       "id": 11,
       "name": "External Hard Drive",
       "category": "Storage",
       "price": 3499,
-      "description": "Reliable portable storage for files, videos, and backups.",
-      "image": "https://images.pexels.com/photos/9379075/pexels-photo-9379075.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "Portable hard drive for backup and storage.",
+      "image": "https://images.pexels.com/photos/159226/pexels-photo-159226.jpeg"
     },
     {
       "id": 12,
       "name": "USB Flash Drive",
       "category": "Storage",
       "price": 399,
-      "description": "Fast and compact USB drive for quick data transfer.",
-      "image": "https://images.pexels.com/photos/9379075/pexels-photo-9379075.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "Compact USB drive for quick data transfer.",
+      "image": "https://images.pexels.com/photos/209728/pexels-photo-209728.jpeg"
     },
     {
       "id": 13,
       "name": "Smart Thermostat",
       "category": "Home Tech",
       "price": 4999,
-      "description": "Control home temperature remotely with smart automation.",
-      "image": "https://images.pexels.com/photos/705164/pexels-photo-705164.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "Smart thermostat for automated temperature control.",
+      "image": "https://images.pexels.com/photos/4792494/pexels-photo-4792494.jpeg"
     },
     {
       "id": 14,
       "name": "Fitness Tracker",
       "category": "Wearables",
       "price": 2599,
-      "description": "Monitor heart rate, steps, and workout performance.",
-      "image": "https://images.pexels.com/photos/16247545/pexels-photo-16247545.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "Track steps, heart rate, and daily activity.",
+      "image": "https://images.pexels.com/photos/437038/pexels-photo-437038.jpeg"
     },
     {
       "id": 15,
       "name": "VR Headset",
       "category": "Gaming",
       "price": 32999,
-      "description": "Immersive virtual reality experience with high clarity.",
-      "image": "https://images.pexels.com/photos/705164/pexels-photo-705164.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "Virtual reality headset with immersive visuals.",
+      "image": "https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg"
     },
     {
       "id": 16,
       "name": "Portable Projector",
       "category": "Electronics",
       "price": 8999,
-      "description": "Project movies and presentations anywhere on the go.",
-      "image": "https://images.pexels.com/photos/705164/pexels-photo-705164.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "Compact projector for movies and presentations.",
+      "image": "https://images.pexels.com/photos/799137/pexels-photo-799137.jpeg"
     },
     {
       "id": 17,
       "name": "Bluetooth Earbuds",
       "category": "Audio",
       "price": 1499,
-      "description": "Lightweight earbuds with clear sound and deep bass.",
-      "image": "https://images.pexels.com/photos/4123561/pexels-photo-4123561.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "Wireless earbuds with clear audio quality.",
+      "image": "https://images.pexels.com/photos/3780681/pexels-photo-3780681.jpeg"
     },
     {
       "id": 18,
       "name": "Gaming Chair",
       "category": "Furniture",
       "price": 7999,
-      "description": "Ergonomic gaming chair with adjustable height and comfort.",
-      "image": "https://images.pexels.com/photos/705164/pexels-photo-705164.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "Comfortable gaming chair with ergonomic support.",
+      "image": "https://images.pexels.com/photos/7915288/pexels-photo-7915288.jpeg"
     },
     {
       "id": 19,
       "name": "Desk Lamp",
       "category": "Home",
       "price": 899,
-      "description": "Stylish LED desk lamp ideal for work and study.",
-      "image": "https://images.pexels.com/photos/9379075/pexels-photo-9379075.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "LED desk lamp for work and study.",
+      "image": "https://images.pexels.com/photos/112811/pexels-photo-112811.jpeg"
     },
     {
       "id": 20,
       "name": "Coffee Maker",
       "category": "Kitchen",
       "price": 2499,
-      "description": "Brew delicious coffee quickly with this modern coffee maker.",
-      "image": "https://images.pexels.com/photos/705164/pexels-photo-705164.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    {
-      "id": 21,
-      "name": "Wireless Charger",
-      "category": "Accessories",
-      "price": 699,
-      "description": "Fast wireless charging for all compatible devices.",
-      "image": "https://images.pexels.com/photos/9379075/pexels-photo-9379075.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    {
-      "id": 22,
-      "name": "Action Camera",
-      "category": "Photography",
-      "price": 10999,
-      "description": "Compact action camera for capturing adventures in HD.",
-      "image": "https://images.pexels.com/photos/705164/pexels-photo-705164.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    {
-      "id": 23,
-      "name": "Smart Light Bulb",
-      "category": "Home Tech",
-      "price": 499,
-      "description": "Energy-saving bulb with app and voice control support.",
-      "image": "https://images.pexels.com/photos/705164/pexels-photo-705164.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    {
-      "id": 24,
-      "name": "Noise Cancelling Headset",
-      "category": "Audio",
-      "price": 3999,
-      "description": "Experience distraction-free sound with noise cancellation.",
-      "image": "https://images.pexels.com/photos/705164/pexels-photo-705164.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    {
-      "id": 25,
-      "name": "Laptop Backpack",
-      "category": "Accessories",
-      "price": 1299,
-      "description": "Durable & waterproof backpack with extra laptop padding.",
-      "image": "https://images.pexels.com/photos/9379075/pexels-photo-9379075.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    {
-      "id": 26,
-      "name": "Wireless Keyboard",
-      "category": "Accessories",
-      "price": 999,
-      "description": "Slim wireless keyboard with long battery backup.",
-      "image": "https://images.pexels.com/photos/705164/pexels-photo-705164.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    {
-      "id": 27,
-      "name": "Portable Power Bank",
-      "category": "Accessories",
-      "price": 1199,
-      "description": "High-capacity power bank to charge devices on the go.",
-      "image": "https://images.pexels.com/photos/4123561/pexels-photo-4123561.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    {
-      "id": 28,
-      "name": "Smart Doorbell",
-      "category": "Home Tech",
-      "price": 5999,
-      "description": "Smart doorbell with camera and mobile notifications.",
-      "image": "https://images.pexels.com/photos/705164/pexels-photo-705164.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    {
-      "id": 29,
-      "name": "Electric Toothbrush",
-      "category": "Personal Care",
-      "price": 999,
-      "description": "Automatic toothbrush with soft bristles and long battery.",
-      "image": "https://images.pexels.com/photos/705164/pexels-photo-705164.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    {
-      "id": 30,
-      "name": "Digital Watch",
-      "category": "Wearables",
-      "price": 1499,
-      "description": "Stylish digital watch with multiple smart features.",
-      "image": "https://images.pexels.com/photos/16247545/pexels-photo-16247545.jpeg?auto=compress&cs=tinysrgb&w=600"
+      "description": "Modern coffee maker for daily use.",
+      "image": "https://images.pexels.com/photos/585750/pexels-photo-585750.jpeg"
     }
   ]
 }
