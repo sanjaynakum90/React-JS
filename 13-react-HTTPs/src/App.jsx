@@ -4,9 +4,6 @@ import Product from './Components/Product'
 const App = () => {
   return (
     <>
-    <header>
-      
-    </header>
       <Product />
     </>
   )

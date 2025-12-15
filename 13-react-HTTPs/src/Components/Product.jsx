@@ -24,7 +24,7 @@ const Product = () => {
 
     return (
         <Container className="py-4">
-            {/* Flex container */}
+          
             <div className="d-flex flex-wrap gap-4 justify-content-center">
 
                 {product.map((prod) => (

@@ -1,0 +1,8 @@
+ .product-card:hover {
+     transform: translateY(-6px);
+     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+ }
+
+ .product-card:hover .product-image {
+     transform: scale(1.08);
+ }
