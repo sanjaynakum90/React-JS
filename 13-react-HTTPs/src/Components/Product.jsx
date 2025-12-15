@@ -37,6 +37,7 @@ const Product = () => {
                             variant="top" 
                             src={prod.image} 
                             style={{ height: "200px", objectFit: "cover" }}
+                            alt={prod.Title}
                         />
 
                         <Card.Body>
