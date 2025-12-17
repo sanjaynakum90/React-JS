@@ -6,11 +6,17 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Loading from "./Loading";
 import axios from "axios";
+import Navbar from "./Navbar"
+import CartModal  from "./Modal";
+
+
 
 const Product = () => {
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const [cart, setCart] = useState([])
+    const [showCart, setShowCart] = useState(false);
 
     //   useEffect(() => {
     //     const productData = async () => {
@@ -77,47 +83,72 @@ const Product = () => {
     if (error) {
         return <p>{error}</p>;
     }
+    const handleCartData = (product) => {
+        const existingItem = cart.find((item) => item.id === product.id);
+
+        if (existingItem) {
+            setCart(cart.map(item =>
+                item.id === product.id
+                    ? { ...item, qty: item.qty + 1 }
+                    : item
+            ));
+        } else {
+            setCart([...cart, { ...product, qty: 1 }]);
+        }
+    };
+
+    const handleUpdateQty = (id, qty) => {
+        setCart(cart.map(item =>
+            item.id === id ? { ...item, qty } : item
+        ));
+    };
+
+    const handleRemove = (id) => {
+        setCart(cart.filter(item => item.id !== id));
+    };
+
+
 
     return (
-        <>
-            {/* {product.map((prod)=>{
-        return (    
 
-            <>
-            <li key={prod.id}>{prod.name}</li>
-            <img src={prod.image} alt={prod.name} width={200} />
-            <li>{prod.price}</li>
-            </>
-        )
-    })} */}
+        <Container>
+            <Navbar cart={cart} onCartClick={() => setShowCart(true)} />
+            {showCart && (
+                <CartModal
+                    cart={cart}
+                    onClose={() => setShowCart(false)}
+                    onUpdateQty={handleUpdateQty}
+                    onRemove={handleRemove}
+                />
+            )}
+            <Row>
+                {product.map((prod) => (
+                    <Col md={3} sm={6} key={prod.id}>
+                        <Card>
+                            <Card.Img
+                                variant="top"
+                                src={prod.image}
+                                alt={prod.name}
+                                style={{ maxHeight: "200px" }}
+                            />
+                            <Card.Body>
+                                <Card.Title>{prod.name}</Card.Title>
+                                <Card.Text>{prod.description}</Card.Text>
+                                <Card.Title> ₹{prod.price}</Card.Title>
+                                <Button
+                                    variant="primary"
+                                    onClick={() => handleCartData(prod)}
+                                >
+                                    Add to cart
+                                </Button>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                ))}
 
-            <Container>
-                <Row>
-                    {product.map((prod) => {
-                        return (
-                            <>
-                                <Col md={3} sm={6} key={prod.id}>
-                                    <Card>
-                                        <Card.Img
-                                            variant="top"
-                                            src={prod.image}
-                                            alt={prod.name}
-                                            style={{ maxHeight: "200px" }}
-                                        />
-                                        <Card.Body>
-                                            <Card.Title>{prod.name}</Card.Title>
-                                            <Card.Text>{prod.description}</Card.Text>
-                                            <Card.Title> ₹{prod.price}</Card.Title>
-                                            <Button variant="primary">Add to card</Button>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                            </>
-                        );
-                    })}
-                </Row>
-            </Container>
-        </>
+            </Row>
+        </Container>
+
     );
 };
 
