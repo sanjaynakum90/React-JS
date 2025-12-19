@@ -119,6 +119,7 @@ const Product = () => {
                     onClose={() => setShowCart(false)}
                     onUpdateQty={handleUpdateQty}
                     onRemove={handleRemove}
+                    clearCart = {()=>setCart([])}
                 />
             )}
             <Row>

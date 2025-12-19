@@ -14,9 +14,8 @@ const Loading = () => {
                         <div class="control maximize"></div>
                     </div>
                 </div>
-                <div class="text">please wait...</div>
+                <div class="text">Loading...</div>
             </div>
-
         </>
     )
 }
