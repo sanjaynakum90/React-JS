@@ -15,9 +15,14 @@ function BasicExample({ cart, onCartClick }) {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
-                        <Button variant="primary" onClick={onCartClick}>
-                            <i className="fa-solid fa-cart-shopping"></i>Cart <Badge bg="primary">{cart.length}</Badge>
-                        </Button>
+                        <div className="d-flex gap-4">
+                            <Button variant="primary" onClick={onCartClick}>
+                                <i className="fa-solid fa-cart-shopping"></i>Cart <Badge bg="primary">{cart.length}</Badge>
+                            </Button>
+                            <Button variant="primary">
+                                Your Order
+                            </Button>
+                        </div>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
