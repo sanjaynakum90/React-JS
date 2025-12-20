@@ -5,7 +5,7 @@ import Table from "react-bootstrap/Table";
 import Image from "react-bootstrap/Image";
 import axios from "axios";
 
-const CartModal = ({ cart, onClose,clearCart}) => {
+const CartModal = ({ onShow ,cart, onClose,clearCart}) => {
     const total = cart.reduce(
         (sum, item) => sum + item.price * item.qty,
         0
@@ -30,7 +30,7 @@ const CartModal = ({ cart, onClose,clearCart}) => {
     };
 
     return (
-        <Modal show onHide={onClose} centered size="lg">
+        <Modal show={onShow} onHide={onClose} centered size="lg">
             <Modal.Header closeButton>
                 <Modal.Title>Shopping Cart</Modal.Title>
             </Modal.Header>
@@ -64,7 +64,6 @@ const CartModal = ({ cart, onClose,clearCart}) => {
                                         </td>
                                         <td>{item.name}</td>
                                         <td>{item.price}</td>
-                                        <td>{item.price * item.qty}</td>
                                     </tr>
                                 ))}
                             </tbody>

@@ -7,7 +7,7 @@ import Card from "react-bootstrap/Card";
 import Loading from "./Loading";
 import axios from "axios";
 import Navbar from "./Navbar"
-import CartModal  from "./Modal";
+import CartModal from "./Modal";
 
 
 
@@ -115,11 +115,12 @@ const Product = () => {
             <Navbar cart={cart} onCartClick={() => setShowCart(true)} />
             {showCart && (
                 <CartModal
+                    onShow={showCart}
                     cart={cart}
                     onClose={() => setShowCart(false)}
                     onUpdateQty={handleUpdateQty}
                     onRemove={handleRemove}
-                    clearCart = {()=>setCart([])}
+                    clearCart={() => setCart([])}
                 />
             )}
             <Row>
