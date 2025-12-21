@@ -46,6 +46,7 @@ const OrderCart = ({ show, onHide }) => {
                                 <th>Status</th>
                                 <th>Total</th>
                                 <th>Created At</th>
+                                <th colSpan={2}>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -69,7 +70,13 @@ const OrderCart = ({ show, onHide }) => {
                                     <td>{order.status}</td>
                                     <td>{order.totalAmount}</td>
                                     <td>
-                                        {new Date(order.createAt).toLocaleString()}
+                                        {new Date(order.createdAt).toLocaleString()}
+                                    </td>
+                                    <td>
+                                        <Button variant="success">Update</Button>
+                                    </td>
+                                    <td>
+                                        <Button variant="danger">Delete</Button>
                                     </td>
                                 </tr>
                             ))}
