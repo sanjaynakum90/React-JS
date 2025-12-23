@@ -45,11 +45,17 @@ const OrderCart = ({ show, onHide }) => {
 
     const handleDeleteOrder = async (id) => {
         try {
+
             await axios.delete(`http://localhost:5000/orders/${id}`);
+
+
             setOrders((prev) => prev.filter((order) => order.id !== id));
+
         } catch (err) {
+
             setError('Failed to delete order');
         }
+        onHide()
     };
 
     return (
