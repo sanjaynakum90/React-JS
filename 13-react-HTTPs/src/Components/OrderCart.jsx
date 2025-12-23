@@ -42,7 +42,7 @@ const OrderCart = ({ show, onHide }) => {
         }
     };
 
-    
+
     const handleDeleteOrder = async (id) => {
         try {
             await axios.delete(`http://localhost:5000/orders/${id}`);
