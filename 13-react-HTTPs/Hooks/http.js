@@ -1,23 +1,25 @@
 import axios from 'axios'
-import  { useCallback, useState } from 'react'
+import { useCallback, useState } from 'react'
 
-const useHttp = () => {
+const useHttp = ({ url, method = "GET" }) => {
 
-    const [data, setData] = useState(null)
+    const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
 
 
-    const sendRequest = useCallback(async (config) => {
+    const sendRequest = useCallback(async (body = null, config) => {
         setLoading(true)
         setError(null)
 
 
         try {
-            const res = await axios({ method: "GET", url })
+            const res = await axios({ url, method, data: body, ...config })
 
             const data = res.data
+
+            setData(data)
 
             setLoading(false)
             return res.data
@@ -32,7 +34,8 @@ const useHttp = () => {
     return {
         loading,
         error,
-        sendRequest
+        sendRequest,
+        data
     }
 }
-    export default useHttp;
+export default useHttp;
