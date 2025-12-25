@@ -163,66 +163,6 @@
   ],
   "orders": [
     {
-      "id": "c9e3",
-      "cart": [
-        {
-          "id": "3",
-          "name": "Laptop",
-          "category": "Electronics",
-          "price": 45999,
-          "description": "Lightweight laptop suitable for work and productivity.",
-          "image": "https://images.pexels.com/photos/18105/pexels-photo.jpg",
-          "qty": 2
-        }
-      ],
-      "totalAmount": 91998,
-      "status": "pending",
-      "createdAt": "2025-12-25T04:50:35.064Z"
-    },
-    {
-      "id": "7bbf",
-      "cart": [
-        {
-          "id": "2",
-          "name": "Smartphone",
-          "category": "Electronics",
-          "price": 18999,
-          "description": "Powerful smartphone with a clear display and smooth performance.",
-          "image": "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg",
-          "qty": 1
-        },
-        {
-          "id": "4",
-          "name": "Smart Watch",
-          "category": "Wearables",
-          "price": 3499,
-          "description": "Smartwatch with fitness tracking and notifications.",
-          "image": "https://images.pexels.com/photos/267394/pexels-photo-267394.jpeg",
-          "qty": 1
-        }
-      ],
-      "totalAmount": 22498,
-      "status": "pending",
-      "createdAt": "2025-12-25T04:52:26.784Z"
-    },
-    {
-      "id": "0603",
-      "cart": [
-        {
-          "id": "3",
-          "name": "Laptop",
-          "category": "Electronics",
-          "price": 45999,
-          "description": "Lightweight laptop suitable for work and productivity.",
-          "image": "https://images.pexels.com/photos/18105/pexels-photo.jpg",
-          "qty": 2
-        }
-      ],
-      "totalAmount": 91998,
-      "status": "pending",
-      "createdAt": "2025-12-25T05:01:08.432Z"
-    },
-    {
       "id": "cb18",
       "cart": [
         {
@@ -247,50 +187,6 @@
       "totalAmount": 49498,
       "status": "pending",
       "createdAt": "2025-12-25T05:07:12.424Z"
-    },
-    {
-      "id": "0e84",
-      "cart": [
-        {
-          "id": "3",
-          "name": "Laptop",
-          "category": "Electronics",
-          "price": 45999,
-          "description": "Lightweight laptop suitable for work and productivity.",
-          "image": "https://images.pexels.com/photos/18105/pexels-photo.jpg",
-          "qty": 1
-        },
-        {
-          "id": "4",
-          "name": "Smart Watch",
-          "category": "Wearables",
-          "price": 3499,
-          "description": "Smartwatch with fitness tracking and notifications.",
-          "image": "https://images.pexels.com/photos/267394/pexels-photo-267394.jpeg",
-          "qty": 1
-        },
-        {
-          "id": "2",
-          "name": "Smartphone",
-          "category": "Electronics",
-          "price": 18999,
-          "description": "Powerful smartphone with a clear display and smooth performance.",
-          "image": "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg",
-          "qty": 1
-        },
-        {
-          "id": "1",
-          "name": "Wireless Bluetooth Headphones",
-          "category": "Audio",
-          "price": 2499,
-          "description": "High-quality wireless headphones with deep bass and long battery life.",
-          "image": "https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg",
-          "qty": 1
-        }
-      ],
-      "totalAmount": 70996,
-      "status": "pending",
-      "createdAt": "2025-12-25T05:32:16.502Z"
     },
     {
       "id": "76ca",
@@ -337,11 +233,17 @@
       "createdAt": "2025-12-25T10:17:00.345Z"
     },
     {
-      "id": "4a6f"
-    },
-    {
-      "id": "7695",
+      "id": "c050",
       "cart": [
+        {
+          "id": "3",
+          "name": "Laptop",
+          "category": "Electronics",
+          "price": 45999,
+          "description": "Lightweight laptop suitable for work and productivity.",
+          "image": "https://images.pexels.com/photos/18105/pexels-photo.jpg",
+          "qty": 2
+        },
         {
           "id": "4",
           "name": "Smart Watch",
@@ -349,21 +251,12 @@
           "price": 3499,
           "description": "Smartwatch with fitness tracking and notifications.",
           "image": "https://images.pexels.com/photos/267394/pexels-photo-267394.jpeg",
-          "qty": 2
-        },
-        {
-          "id": "8",
-          "name": "Digital Camera",
-          "category": "Photography",
-          "price": 25999,
-          "description": "High-resolution camera for photos and videos.",
-          "image": "https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg",
-          "qty": 2
+          "qty": 1
         }
       ],
-      "totalAmount": 58996,
-      "status": "pending",
-      "createdAt": "2025-12-25T10:32:06.177Z"
+      "totalAmount": 95497,
+      "status": "Completed",
+      "createdAt": "2025-12-25T10:52:06.183Z"
     }
   ]
 }

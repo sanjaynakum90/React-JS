@@ -122,7 +122,9 @@ const OrderCart = ({ show, onHide }) => {
 
                                     <td>
                                         <ListGroup variant="flush">
-                                            {ord.cart.map((item, i) => (
+                                            {(ord.cart || []
+
+                                            ).map((item, i) => (
                                                 <ListGroup.Item key={i}>
                                                     <div className="fw-semibold">{item.name}</div>
                                                     <small className="text-muted">
@@ -146,7 +148,7 @@ const OrderCart = ({ show, onHide }) => {
                                             size="sm"
                                             disabled={ord.status === 'Completed'}
                                             onClick={() =>
-                                                handleUpdateStatus(orr.id, 'Completed')
+                                                handleUpdateStatus(ord.id, 'Completed')
                                             }
                                         >
                                             Complete
