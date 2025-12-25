@@ -3,9 +3,17 @@ import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
 import Table from "react-bootstrap/Table";
 import Image from "react-bootstrap/Image";
-import axios from "axios";
+import useHttp from "../Hooks/http";
+// import Product from "./Product";
 
-const CartModal = ({ onShow ,cart, onClose,clearCart}) => {
+const CartModal = ({ onShow, cart, onClose, clearCart }) => {
+
+
+    const url = "http://localhost:5000/orders"
+
+    const { sendRequest, loading } = useHttp({ url, method: "POST" })
+
+
     const total = cart.reduce(
         (sum, item) => sum + item.price * item.qty,
         0
@@ -20,14 +28,37 @@ const CartModal = ({ onShow ,cart, onClose,clearCart}) => {
         };
 
         try {
-            await axios.post("http://localhost:5000/orders", orderData);
-            alert("Order placed successfully");
+
+
+            //     await axios.post("http://localhost:5000/orders", orderData);
+            //     alert("Order placed successfully");
+            //     onClose();
+            //     clearCart();
+            // } catch (error) {
+            //     console.error(error.message);
+
+
+
+            sendRequest({
+                url: url,
+                method: "POST",
+                body: orderData
+            })
+            alert("order placed successfully");
             onClose();
             clearCart();
-        } catch (error) {
-            console.error(error.message);
+            // console.log("data", orderData);
+
+
+        }
+        catch (error) {
+            console.log(error.message);
+
         }
     };
+    if (loading) {
+        return loading;
+    }
 
     return (
         <Modal show={onShow} onHide={onClose} centered size="lg">
@@ -64,6 +95,7 @@ const CartModal = ({ onShow ,cart, onClose,clearCart}) => {
                                         </td>
                                         <td>{item.name}</td>
                                         <td>{item.price}</td>
+                                        <td>{item.price * item.qty}</td>
                                     </tr>
                                 ))}
                             </tbody>

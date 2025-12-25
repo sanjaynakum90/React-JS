@@ -19,7 +19,7 @@ function BasicExample({ cart ,onCartClick}) {
                         <Nav className="ms-auto">
                             <div className="d-flex gap-4">
                                 <Button variant="primary"  onClick={onCartClick}>
-                                    Cart <Badge bg="secondary">{cart.length}</Badge>
+                                    Cart <Badge className="secondary">{cart.length}</Badge>
                                 </Button>
 
                                 <Button

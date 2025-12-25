@@ -4,33 +4,59 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
 import ListGroup from 'react-bootstrap/ListGroup';
+import useHttp from '../Hooks/http';
 
 const OrderCart = ({ show, onHide }) => {
     const [orders, setOrders] = useState([]);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
+    // const [error, setError] = useState(null);
+    // const [loading, setLoading] = useState(false);
+
+    const url = "http://localhost:5000/orders"
+
+    const { sendRequest, loading, error, data } = useHttp({ url, method: "GET" })
 
     useEffect(() => {
         const fetchOrderData = async () => {
-            try {
-                setLoading(true);
-                const res = await axios.get('http://localhost:5000/orders');
-                setOrders(res.data);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
+
+
+            // try {
+            //     setLoading(true);
+            //     const res = await axios.get('http://localhost:5000/orders');
+            //     setOrders(res.data);
+            // } catch (err) {
+            //     setError(err.message);
+            // } finally {
+            //     setLoading(false);
+            // }
+
+            sendRequest({
+                url: url,
+                method: "GET"
+            })
         };
 
         if (show) fetchOrderData();
-    }, [show]);
+    }, [show, sendRequest, url]);
+
+
+    useEffect(() => {
+        if (data && data.length > 0) {
+            setOrders(data);
+        }
+    }, [data]);
 
     const handleUpdateStatus = async (id, status) => {
         try {
-            await axios.patch(`http://localhost:5000/orders/${id}`, {
-                status,
-            });
+
+            sendRequest({
+                url: `${url}/${id}`,
+                method: "PATCH",
+                body: { status }
+            })
+
+            // await axios.patch(`http://localhost:5000/orders/${id}`, {
+            //     status,
+            // });
 
             setOrders((prev) =>
                 prev.map((order) =>
@@ -46,7 +72,12 @@ const OrderCart = ({ show, onHide }) => {
     const handleDeleteOrder = async (id) => {
         try {
 
-            await axios.delete(`http://localhost:5000/orders/${id}`);
+            sendRequest({
+                url: `${url}/${id}`,
+                method: "DELETE"
+            })
+
+            // await axios.delete(`http://localhost:5000/orders/${id}`);
 
 
             setOrders((prev) => prev.filter((order) => order.id !== id));
@@ -85,13 +116,13 @@ const OrderCart = ({ show, onHide }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {orders.map((order) => (
-                                <tr key={order.id}>
-                                    <td className="text-center">{order.id}</td>
+                            {orders.map((ord) => (
+                                <tr key={ord.id}>
+                                    <td className="text-center">{ord.id}</td>
 
                                     <td>
                                         <ListGroup variant="flush">
-                                            {order.cart.map((item, i) => (
+                                            {ord.cart.map((item, i) => (
                                                 <ListGroup.Item key={i}>
                                                     <div className="fw-semibold">{item.name}</div>
                                                     <small className="text-muted">
@@ -102,20 +133,20 @@ const OrderCart = ({ show, onHide }) => {
                                         </ListGroup>
                                     </td>
 
-                                    <td className="text-center">{order.status}</td>
-                                    <td className="text-center">₹{order.totalAmount}</td>
+                                    <td className="text-center">{ord.status}</td>
+                                    <td className="text-center">₹{ord.totalAmount}</td>
 
                                     <td className="text-center">
-                                        {new Date(order.createdAt).toLocaleString()}
+                                        {new Date(ord.createdAt).toLocaleString()}
                                     </td>
 
                                     <td className="text-center">
                                         <Button
                                             variant="success"
                                             size="sm"
-                                            disabled={order.status === 'Completed'}
+                                            disabled={ord.status === 'Completed'}
                                             onClick={() =>
-                                                handleUpdateStatus(order.id, 'Completed')
+                                                handleUpdateStatus(orr.id, 'Completed')
                                             }
                                         >
                                             Complete
@@ -126,7 +157,7 @@ const OrderCart = ({ show, onHide }) => {
                                         <Button
                                             variant="danger"
                                             size="sm"
-                                            onClick={() => handleDeleteOrder(order.id)}
+                                            onClick={() => handleDeleteOrder(ord.id)}
                                         >
                                             Delete
                                         </Button>

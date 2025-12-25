@@ -5,76 +5,59 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Loading from "./Loading";
-import axios from "axios";
 import Navbar from "./Navbar"
 import CartModal from "./Modal";
+import useHttp from "../Hooks/http";
 
 
 
 const Product = () => {
-    const [product, setProduct] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+
+    // const [product, setProduct] = useState([]);
+    // const [loading, setLoading] = useState(false);
+    // const [error, setError] = useState("");
     const [cart, setCart] = useState([])
     const [showCart, setShowCart] = useState(false);
 
-    //   useEffect(() => {
-    //     const productData = async () => {
-    //       setLoading(true);
+    const url ="http://localhost:5000/products"
 
-    //       try {
-    //         const res = await fetch("http://localhost:5000/products");
+    const{sendRequest,data:product,loading,error}= useHttp({url})
 
-    //         if (!res.ok) {
-    //           throw new Error("failed to fetch product data");
-    //         }
-
-    //         const data = await res.json();
-
-    //         if (data.length <= 0) {
-    //           throw new Error("no product data found");
-    //         }
-
-    //         setProduct(data);
-    //       } catch (error) {
-    //         setError(error.message);
-    //       }
-
-    //       setLoading(false);
-    //     };
-
-    //     productData();
-    //   }, []);
 
     useEffect(() => {
         const fetchProductData = async () => {
-            try {
-                setLoading(true);
+            // try {
+            //     setLoading(true);
 
-                const res = await axios("http://localhost:5000/products");
+            //     const res = await axios("http://localhost:5000/products");
 
-                const data = res.data;
+            //     const data = res.data;
 
-                if (data.length <= 0) {
-                    setError("no data found");
-                }
+            //     if (data.length <= 0) {
+            //         setError("no data found");
+            //     }
 
-                setProduct(data);
-            } catch (error) {
-                console.log(error);
+            //     setProduct(data);
+            // } catch (error) {
+            //     console.log(error);
 
-                if (error.status === 404) {
-                    setError("invalid url");
-                } else {
-                    setError(error.message);
-                }
-            } finally {
-                setLoading(false);
-            }
+            //     if (error.status === 404) {
+            //         setError("invalid url");
+            //     } else {
+            //         setError(error.message);
+            //     }
+            // } finally {
+            //     setLoading(false);
+            // }
+
+
+
+
+            sendRequest({ url: url, method: "GET" })
         };
 
         fetchProductData();
-    }, []);
+    }, [sendRequest, url]);
 
     if (loading) {
         return <Loading />;
