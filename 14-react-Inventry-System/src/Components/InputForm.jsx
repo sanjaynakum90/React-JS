@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../futures/Products/productSlice";
 
 const InputForm = () => {
 
@@ -8,17 +10,34 @@ const InputForm = () => {
         category: "",
         qty: 10,
     });
+    const dispatch = useDispatch();
 
-    const handleChange = (field, event) => {
-        setProduct({
-            ...product,
-            [field]: event.target.value,
-        });
+    const handleChange = (field, e) => {
+        setProduct((prev) => {
+            return {
+                ...prev,
+                [field]: e.target.value,
+            }
+        })
     };
+    const handleOnSubmit = (e) => {
+        e.preventDefault();
 
-    const handleOnSubmit = (event) => {
-        event.preventDefault();
-        console.log("Submitted Product:", product);
+        const productsData = {
+            id: new Date().getTime(),
+            product,
+        };
+
+        dispatch(addProduct(productsData));
+
+        setProduct({
+            name: "",
+            price: "",
+            category: "",
+            qty:10,
+        });
+
+        alert("product added");
     };
 
     return (
