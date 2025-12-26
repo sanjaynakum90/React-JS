@@ -1,4 +1,3 @@
-import React from "react";
 import Table from "react-bootstrap/Table";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteProduct} from "../futures/Products/productSlice";
@@ -11,17 +10,7 @@ const ProductList = () => {
         dispatch(deleteProduct(id));
     };
 
-    const handleUpdate = (prod) => {
-        const updatedProduct = {
-            ...prod,
-            product: {
-                ...prod.product,
-                price: Number(prod.product.price) + 10,
-            },
-        };
-        dispatch(updateProduct(updatedProduct));
-    };
-
+   
     return (
         <Table bordered striped hover>
             <thead>
