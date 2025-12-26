@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 const InputForm = () => {
+
     const [product, setProduct] = useState({
         name: "",
         price: "",
