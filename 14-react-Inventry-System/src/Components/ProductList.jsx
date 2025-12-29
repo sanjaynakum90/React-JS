@@ -1,6 +1,6 @@
 import Table from "react-bootstrap/Table";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteProduct} from "../futures/Products/productSlice";
+import { deleteProduct, setUpdateState } from "../futures/Products/productSlice";
 
 const ProductList = () => {
     const products = useSelector((state) => state.product.products);
@@ -10,7 +10,9 @@ const ProductList = () => {
         dispatch(deleteProduct(id));
     };
 
-   
+    const handleUpdate = (prod) => {
+        dispatch(setUpdateState(prod))
+    }
     return (
         <Table bordered striped hover>
             <thead>
@@ -32,7 +34,7 @@ const ProductList = () => {
                         <td>{prod.product.category}</td>
                         <td>{prod.product.qty}</td>
                         <td>
-                            <button onClick={() => handleUpdate(prod)}>Update</button>{" "}
+                            <button onClick={() => handleUpdate(prod)}>Update</button>
                             <button onClick={() => handleDelete(prod.id)}>Delete</button>
                         </td>
                     </tr>
