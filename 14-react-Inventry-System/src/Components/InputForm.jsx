@@ -38,7 +38,7 @@ const InputForm = () => {
             dispatch(setUpdateState(null));
             alert("product updated");
         } else {
-            
+
             dispatch(
                 addProduct({
                     id: new Date().getTime(),
