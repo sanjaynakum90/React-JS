@@ -21,6 +21,7 @@ const ProductForm = () => {
     category: "",
   });
 
+
   const updateState = useSelector((state) => state.product.updateState);
 
   useEffect(() => {
@@ -61,6 +62,7 @@ const ProductForm = () => {
     }
   };
 
+ 
   return (
     <>
       <Container>
