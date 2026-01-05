@@ -1,23 +1,37 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
-import { fetchData } from '../features/user/userThunk'
+import { fetchData, createUser } from '../features/user/userThunk'
 
 const UserList = () => {
+    const [input, setInput] = useState("")
 
     const { users, loading, error } = useSelector((state) => state.users)
-
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(fetchData())
     }, [dispatch])
-    if (loading) return <p>loading</p>
 
 
-    if (loading) return <p>{error}</p>
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        if (!input.trim()) return
+
+        dispatch(createUser({ name: input }))
+        setInput("")
+    }
+
+    if (loading) return <p>Loading...</p>
+    if (error) return <p>{error}</p>
 
     return (
         <>
+            <form onSubmit={handleSubmit}>
+                <input type="text" value={input} onChange={(e) => setInput(e.target.value)} />
+                <button type='submit'>add</button>
+            </form>
+
             <table>
                 <thead>
                     <tr>

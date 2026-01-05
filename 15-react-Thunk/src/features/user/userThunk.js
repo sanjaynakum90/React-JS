@@ -1,5 +1,6 @@
 import axios from "axios"
-import { requestFail, requestStart, requestSuccess } from "./userSlice";
+import { addUser, requestFail, requestStart, requestSuccess } from "./userSlice";
+import UserList from "../../Components/UserList";
 
 
 
@@ -16,8 +17,26 @@ export const fetchData = () => {
             const data = res.data
 
             dispatch(requestSuccess(data))
+
         } catch (error) {
 
+            dispatch(requestFail(error.message))
+        }
+    }
+}
+
+export const createUser = () => {
+    return async (dispatch) => {
+
+        dispatch(requestStart());
+
+        try {
+            const res = await axios.post("https://jsonplaceholder.typicode.com/users", user)
+
+            const data = res.data
+
+            dispatch(addUser(data))
+        } catch (error) {
             dispatch(requestFail(error.message))
         }
     }
