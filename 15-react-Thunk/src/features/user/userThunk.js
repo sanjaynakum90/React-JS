@@ -1,6 +1,5 @@
 import axios from "axios"
 import { addUser, requestFail, requestStart, requestSuccess } from "./userSlice";
-import UserList from "../../Components/UserList";
 
 
 
@@ -25,7 +24,7 @@ export const fetchData = () => {
     }
 }
 
-export const createUser = () => {
+export const createUser = (user) => {
     return async (dispatch) => {
 
         dispatch(requestStart());
