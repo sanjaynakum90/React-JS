@@ -16,7 +16,6 @@ const UserList = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if (!input.trim()) return
 
         dispatch(createUser({ name: input }))
         setInput("")
