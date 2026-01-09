@@ -6,7 +6,7 @@ import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-import { auth } from "../../Config/config";
+import { auth } from "../../Firebase/config";
 
 import {
     createUserWithEmailAndPassword,
