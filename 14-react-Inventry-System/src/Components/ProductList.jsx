@@ -22,12 +22,12 @@ const ProductList = () => {
 
   const dispatch = useDispatch();
 
-  const handleChange = (identifire, e) => {
+  const handleChange = (identifier, e) => {
 
     setProductQuery((prod) => {
       return {
         ...prod,
-        [identifire]: e.target.value
+        [identifier]: e.target.value
       }
     })
   }
