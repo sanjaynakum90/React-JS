@@ -33,12 +33,12 @@ const TourList = () => {
                                 />
 
                                 <div className="position-absolute top-0 start-0 p-3 d-flex gap-2">
-                                    {tour.discount && (
+                                    { (
                                         <Badge bg="success" className="px-3 py-2 rounded-pill">
                                             {tour.discount}% Off
                                         </Badge>
                                     )}
-                                    {tour.duration && (
+                                    { (
                                         <Badge bg="warning" text="dark" className="px-3 py-2 rounded-pill">
                                             {tour.duration}
                                         </Badge>
