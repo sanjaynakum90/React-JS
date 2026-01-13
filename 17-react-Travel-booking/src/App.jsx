@@ -1,8 +1,9 @@
-import React from 'react'
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 import Layout from './routes/Layout'
 import Home from './components/Ui/Home'
+import TourList from './components/Ui/TourList'
 
 import { Container, Row, Col } from "react-bootstrap"
 
@@ -14,8 +15,12 @@ const App = () => {
       element: <Layout />,
       children: [
         {
-          path: "/",
-          element: <Home/>
+          index: true,
+          element: <Home />
+        },
+        {
+          path: "tour",
+          element: <TourList />
         }
       ]
     }
