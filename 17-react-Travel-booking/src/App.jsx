@@ -6,6 +6,7 @@ import Home from './components/Ui/Home'
 import TourList from './components/Ui/TourList'
 
 import { Container, Row, Col } from "react-bootstrap"
+import ListDetails from "./components/Ui/ListDetails"
 
 const App = () => {
 
@@ -21,6 +22,10 @@ const App = () => {
         {
           path: "tour",
           element: <TourList />
+        },
+        {
+          path: "tour/:id",
+          element: <ListDetails />
         }
       ]
     }

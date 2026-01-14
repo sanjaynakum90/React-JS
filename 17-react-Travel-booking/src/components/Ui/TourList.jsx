@@ -1,11 +1,17 @@
 import React from 'react'
-import { Container, Row, Col, Card, Badge,Button } from 'react-bootstrap'
-import { FaMapMarkerAlt, FaStar, FaEye } from 'react-icons/fa'
+import { Container, Row, Col, Card, Badge, Button } from 'react-bootstrap'
+import { FaMapMarkerAlt, FaStar } from 'react-icons/fa'
 import { ListData } from '../../Data/ListData'
+import { useNavigate } from "react-router-dom"
+
 
 const TourList = () => {
+
+    const navigate = useNavigate()
+
+
     return (
-        <Container className="py-5">
+        <Container className="py-5 ">
             <Row className="mb-4">
                 <Col>
                     <h1 className="text-center mb-2 fw-bold">Explore Our Tours</h1>
@@ -33,12 +39,12 @@ const TourList = () => {
                                 />
 
                                 <div className="position-absolute top-0 start-0 p-3 d-flex gap-2">
-                                    { (
+                                    {(
                                         <Badge bg="success" className="px-3 py-2 rounded-pill">
                                             {tour.discount}% Off
                                         </Badge>
                                     )}
-                                    { (
+                                    {(
                                         <Badge bg="warning" text="dark" className="px-3 py-2 rounded-pill">
                                             {tour.duration}
                                         </Badge>
@@ -46,9 +52,10 @@ const TourList = () => {
                                 </div>
                             </div>
 
-                            
+
                             <Card.Body className="d-flex flex-column">
-                                <Card.Title className="fw-bold fs-5">
+
+                                <Card.Title className="fw-bold fs-5 mb-2">
                                     {tour.name}
                                 </Card.Title>
 
@@ -57,7 +64,7 @@ const TourList = () => {
                                     {tour.destination}
                                 </div>
 
-                                <div className="mt-auto d-flex justify-content-between align-items-center">
+                                <div className="d-flex justify-content-between align-items-center mb-3">
                                     <div className="fw-semibold text-success fs-5">
                                         ₹{tour.price.toLocaleString()}
                                         <span className="text-muted fs-6"> / Person</span>
@@ -68,7 +75,17 @@ const TourList = () => {
                                         {tour.rating}
                                     </div>
                                 </div>
+
+                                <Button
+                                    variant="success"
+                                    className="mt-auto w-100 rounded-3 fw-bold py-2"
+                                    onClick={() => navigate(`/tour/${tour.id}`)}
+                                >
+                                    More Details →
+                                </Button>
+
                             </Card.Body>
+
                         </Card>
                     </Col>
                 ))}

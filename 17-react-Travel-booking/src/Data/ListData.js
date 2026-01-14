@@ -148,7 +148,7 @@ export const ListData = [
         price: 132700,
         duration: "5 Days / 4 Nights",
         rating: 4.8,
-        image: "https://images.pexels.com/photos/161936/petra-jordan-architecture-history-161936.jpeg",
+        image: "https://images.pexels.com/photos/17472761/pexels-photo-17472761.jpeg",
         description:
             "Discover ancient wonders and desert beauty in the Middle East.",
     },
