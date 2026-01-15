@@ -1,7 +1,8 @@
-import React from "react"
 import { useParams } from "react-router-dom"
-import { Container, Card, Badge, Row, Col } from "react-bootstrap"
+
 import { ListData } from "../../Data/ListData"
+
+import { Container, Card, Badge, Row, Col } from "react-bootstrap"
 import { FaStar } from "react-icons/fa"
 
 const TourDetails = () => {
@@ -9,7 +10,7 @@ const TourDetails = () => {
   const tour = ListData.find(item => item.id === Number(id))
 
   if (!tour) {
-    return <h2 className="text-center mt-5">Mission not found 🚀</h2>
+    return <h2 className="text-center mt-5">Destination not found </h2>
   }
 
   return (
@@ -39,17 +40,6 @@ const TourDetails = () => {
           </h4>
 
           <p className="mt-4">{tour.description}</p>
-
-          <Row className="mt-4">
-            <Col md={6}>
-              <h6 className="fw-bold">Gravity</h6>
-              <p className="text-muted">{tour.gravity}</p>
-            </Col>
-            <Col md={6}>
-              <h6 className="fw-bold">Temperature Range</h6>
-              <p className="text-muted">{tour.temperature}</p>
-            </Col>
-          </Row>
         </Card.Body>
       </Card>
     </Container>

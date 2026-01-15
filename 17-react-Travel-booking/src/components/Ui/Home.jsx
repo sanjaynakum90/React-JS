@@ -28,7 +28,7 @@ function CarouselFadeExample() {
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <img className="d-block w-100" src="https://images.pexels.com/photos/2265876/pexels-photo-2265876.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Mountain landscape" style={{ height: '600px', objectFit: 'cover' }}
+                <img className="d-block w-100" src="https://images.pexels.com/photos/68147/waterfall-thac-dray-nur-buon-me-thuot-daklak-68147.jpeg" alt="Mountain landscape" style={{ height: '600px', objectFit: 'cover' }}
                 />
                 <Carousel.Caption>
                     <h3>Mountain Adventures</h3>

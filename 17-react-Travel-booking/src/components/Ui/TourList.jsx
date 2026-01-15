@@ -1,7 +1,8 @@
-import React from 'react'
 import { Container, Row, Col, Card, Badge, Button } from 'react-bootstrap'
 import { FaMapMarkerAlt, FaStar } from 'react-icons/fa'
+
 import { ListData } from '../../Data/ListData'
+
 import { useNavigate } from "react-router-dom"
 
 

@@ -4,9 +4,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Layout from './routes/Layout'
 import Home from './components/Ui/Home'
 import TourList from './components/Ui/TourList'
+import TourDetails from "./components/Ui/TourDetails"
 
 import { Container, Row, Col } from "react-bootstrap"
-import ListDetails from "./components/Ui/ListDetails"
 
 const App = () => {
 
@@ -25,7 +25,7 @@ const App = () => {
         },
         {
           path: "tour/:id",
-          element: <ListDetails />
+          element: <TourDetails />
         }
       ]
     }
