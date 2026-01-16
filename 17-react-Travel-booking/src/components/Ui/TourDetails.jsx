@@ -17,7 +17,7 @@ const TourDetail = () => {
   return (
     <>
 
-     
+
       <Container className="py-5">
         <Row className="mb-5">
           <Col>
@@ -37,9 +37,9 @@ const TourDetail = () => {
         </Row>
 
 
-        <Row className="mb-5 g-4">
-          <Col lg={8}>
-            <Carousel fade className="shadow-lg">
+        <Row className="mb-5 g-4 ">
+          <Col lg={8} >
+            <Carousel fade className="shadow-lg rounded-4">
               {tour.gallery.map((img, index) => (
                 <Carousel.Item key={index}>
                   <img
@@ -176,40 +176,50 @@ const TourDetail = () => {
             </Card>
           </Col>
 
-          <Col lg={4}>
-            <Card className="border-0 shadow-sm mb-3">
-              <Card.Header className="bg-success text-white py-3">
-                <h5 className="mb-0">
-                  <i className="bi bi-check-circle me-2"></i>
-                  Included
-                </h5>
-              </Card.Header>
-              <ListGroup variant="flush">
-                {tour.included?.map((item, i) => (
-                  <ListGroup.Item key={i} className="py-3">
-                    <i className="bi bi-check2 text-success me-2"></i>
-                    {item}
-                  </ListGroup.Item>
-                ))}
-              </ListGroup>
-            </Card>
+        </Row>
 
-            <Card className="border-0 shadow-sm">
-              <Card.Header className="bg-danger text-white py-3">
-                <h5 className="mb-0">
-                  <i className="bi bi-x-circle me-2"></i>
-                  Excluded
-                </h5>
-              </Card.Header>
-              <ListGroup variant="flush">
-                {tour.excluded?.map((item, i) => (
-                  <ListGroup.Item key={i} className="py-3">
-                    <i className="bi bi-x text-danger me-2"></i>
-                    {item}
-                  </ListGroup.Item>
-                ))}
-              </ListGroup>
-            </Card>
+        <Row>
+          <Col lg={8}>
+
+            <Row>
+              <Col lg={6}>
+                <Card className="border-0 shadow-sm mb-3">
+                  <Card.Header className="bg-success text-white py-3">
+                    <h5 className="mb-0">
+                      <i className="bi bi-check-circle me-2"></i>
+                      Included
+                    </h5>
+                  </Card.Header>
+                  <ListGroup variant="flush">
+                    {tour.included?.map((item, i) => (
+                      <ListGroup.Item key={i} className="py-3">
+                        <i className="bi bi-check2 text-success me-2"></i>
+                        {item}
+                      </ListGroup.Item>
+                    ))}
+                  </ListGroup>
+                </Card>
+              </Col>
+
+              <Col lg={6}>
+                <Card className="border-0 shadow-sm">
+                  <Card.Header className="bg-danger text-white py-3">
+                    <h5 className="mb-0">
+                      <i className="bi bi-x-circle me-2"></i>
+                      Excluded
+                    </h5>
+                  </Card.Header>
+                  <ListGroup variant="flush">
+                    {tour.excluded?.map((item, i) => (
+                      <ListGroup.Item key={i} className="py-3">
+                        <i className="bi bi-x text-danger me-2"></i>
+                        {item}
+                      </ListGroup.Item>
+                    ))}
+                  </ListGroup>
+                </Card></Col>
+            </Row>
+
           </Col>
         </Row>
 
