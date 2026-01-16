@@ -1,3 +1,4 @@
+
 export const ListData = [
     {
         id: 1,
@@ -7,9 +8,39 @@ export const ListData = [
         duration: "5 Days / 4 Nights",
         rating: 4.8,
         image: "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg",
-        description:
-            "Explore the city of love with iconic landmarks, cafés, and art museums.",
+        gallery: [
+            "https://images.pexels.com/photos/699466/pexels-photo-699466.jpeg",
+            "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg",
+            "https://images.pexels.com/photos/532826/pexels-photo-532826.jpeg",
+            "https://images.pexels.com/photos/2363/france-landmark-lights-night.jpg",
+        ],
+        description: "Explore the city of love with iconic landmarks, cafés, and art museums.",
+        tourInfo: {
+            tourType: "Romantic / Leisure",
+            groupSize: "Couple",
+            difficulty: "Easy",
+            bestSeason: "Apr–Jun, Sep–Oct",
+        },
+        aboutTour:
+            "Experience Paris through its timeless romance, historic streets, river cruises, and world-famous cuisine.",
+        itinerary: [
+            { day: 1, title: "Arrival & Seine Cruise", details: "Arrival and evening cruise." },
+            { day: 2, title: "City Tour", details: "Eiffel Tower, Arc de Triomphe." },
+            { day: 3, title: "Museum Day", details: "Louvre & Montmartre." },
+            { day: 4, title: "Versailles", details: "Palace and gardens." },
+            { day: 5, title: "Departure", details: "Airport transfer." },
+        ],
+        included: ["Hotel", "Breakfast", "Transfers"],
+        excluded: ["Flights", "Visa"],
+        extraServices: [
+            { id: 1, name: "Eiffel Dinner", price: 12500, description: "Romantic dinner experience." },
+        ],
+        policies: {
+            cancellation: "Free cancellation up to 15 days.",
+            payment: "30% advance required.",
+        },
     },
+
     {
         id: 2,
         name: "Tropical Bali Escape",
@@ -18,9 +49,40 @@ export const ListData = [
         duration: "6 Days / 5 Nights",
         rating: 4.7,
         image: "https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg",
-        description:
-            "Relax on pristine beaches, enjoy island culture, and luxury resorts.",
+        gallery: [
+            "https://images.pexels.com/photos/460305/pexels-photo-460305.jpeg",
+            "https://images.pexels.com/photos/1000445/pexels-photo-1000445.jpeg",
+            "https://images.pexels.com/photos/2474690/pexels-photo-2474690.jpeg",
+            "https://images.pexels.com/photos/2166559/pexels-photo-2166559.jpeg",
+        ],
+        description: "Relax on pristine beaches and experience island culture.",
+        tourInfo: {
+            tourType: "Beach / Relaxation",
+            groupSize: "Couple / Family",
+            difficulty: "Easy",
+            bestSeason: "May–Oct",
+        },
+        aboutTour:
+            "Bali offers tropical beaches, spiritual temples, lush rice terraces, and rejuvenating spa experiences.",
+        itinerary: [
+            { day: 1, title: "Arrival", details: "Resort check-in." },
+            { day: 2, title: "Ubud", details: "Rice terraces & culture." },
+            { day: 3, title: "Temple Tour", details: "Tanah Lot & Uluwatu." },
+            { day: 4, title: "Beach Day", details: "Leisure & spa." },
+            { day: 5, title: "Adventure", details: "Optional water sports." },
+            { day: 6, title: "Departure", details: "Airport transfer." },
+        ],
+        included: ["Resort stay", "Breakfast"],
+        excluded: ["Flights"],
+        extraServices: [
+            { id: 1, name: "Balinese Spa", price: 6500, description: "Traditional massage." },
+        ],
+        policies: {
+            cancellation: "Free up to 10 days.",
+            payment: "25% advance.",
+        },
     },
+
     {
         id: 3,
         name: "New York City Explorer",
@@ -29,9 +91,38 @@ export const ListData = [
         duration: "4 Days / 3 Nights",
         rating: 4.6,
         image: "https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg",
-        description:
-            "Discover the city that never sleeps with iconic sights and shopping.",
+        gallery: [
+            "https://images.pexels.com/photos/802024/pexels-photo-802024.jpeg",
+            "https://images.pexels.com/photos/378570/pexels-photo-378570.jpeg",
+            "https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg",
+            "https://images.pexels.com/photos/64271/queen-of-liberty-statue-of-liberty-new-york-liberty-statue-64271.jpeg",
+        ],
+        description: "Discover the city that never sleeps.",
+        tourInfo: {
+            tourType: "City / Shopping",
+            groupSize: "Friends",
+            difficulty: "Easy",
+            bestSeason: "Apr–Jun, Sep–Nov",
+        },
+        aboutTour:
+            "Explore iconic landmarks, Broadway streets, shopping avenues, and cultural neighborhoods.",
+        itinerary: [
+            { day: 1, title: "Arrival", details: "Times Square visit." },
+            { day: 2, title: "City Tour", details: "Statue of Liberty & Central Park." },
+            { day: 3, title: "Shopping", details: "5th Avenue." },
+            { day: 4, title: "Departure", details: "Airport transfer." },
+        ],
+        included: ["Hotel", "City tour"],
+        excluded: ["Flights"],
+        extraServices: [
+            { id: 1, name: "Broadway Show", price: 14500, description: "Live theatre ticket." },
+        ],
+        policies: {
+            cancellation: "Free up to 12 days.",
+            payment: "30% advance.",
+        },
     },
+
     {
         id: 4,
         name: "Swiss Alps Adventure",
@@ -40,9 +131,41 @@ export const ListData = [
         duration: "7 Days / 6 Nights",
         rating: 4.9,
         image: "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg",
-        description:
-            "Experience breathtaking mountain views and scenic train journeys.",
+        gallery: [
+            "https://images.pexels.com/photos/753325/pexels-photo-753325.jpeg",
+            "https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg",
+            "https://images.pexels.com/photos/1933319/pexels-photo-1933319.jpeg",
+            "https://images.pexels.com/photos/2310641/pexels-photo-2310641.jpeg",
+        ],
+        description: "Scenic alpine landscapes and train journeys.",
+        tourInfo: {
+            tourType: "Adventure / Nature",
+            groupSize: "Small Group",
+            difficulty: "Moderate",
+            bestSeason: "Jun–Sep",
+        },
+        aboutTour:
+            "Enjoy snow-capped mountains, alpine villages, and panoramic rail routes.",
+        itinerary: [
+            { day: 1, title: "Arrival", details: "Zurich arrival." },
+            { day: 2, title: "Lucerne", details: "City & lake tour." },
+            { day: 3, title: "Interlaken", details: "Mountain views." },
+            { day: 4, title: "Zermatt", details: "Matterhorn region." },
+            { day: 5, title: "Scenic Train", details: "Glacier Express." },
+            { day: 6, title: "Leisure", details: "Optional adventure." },
+            { day: 7, title: "Departure", details: "Return transfer." },
+        ],
+        included: ["Hotels", "Breakfast", "Train passes"],
+        excluded: ["Flights"],
+        extraServices: [
+            { id: 1, name: "Paragliding", price: 18500, description: "Mountain paragliding." },
+        ],
+        policies: {
+            cancellation: "Free up to 20 days.",
+            payment: "40% advance.",
+        },
     },
+
     {
         id: 5,
         name: "Tokyo Culture & Tech Tour",
@@ -51,9 +174,40 @@ export const ListData = [
         duration: "6 Days / 5 Nights",
         rating: 4.8,
         image: "https://images.pexels.com/photos/373290/pexels-photo-373290.jpeg",
-        description:
-            "A perfect blend of tradition, technology, and world-class cuisine.",
+        gallery: [
+            "https://images.pexels.com/photos/2506923/pexels-photo-2506923.jpeg",
+            "https://images.pexels.com/photos/315191/pexels-photo-315191.jpeg",
+            "https://images.pexels.com/photos/2070033/pexels-photo-2070033.jpeg",
+            "https://images.pexels.com/photos/1440476/pexels-photo-1440476.jpeg",
+        ],
+        description: "Tradition meets technology.",
+        tourInfo: {
+            tourType: "Cultural / Modern",
+            groupSize: "Friends / Solo",
+            difficulty: "Easy",
+            bestSeason: "Mar–May, Oct–Nov",
+        },
+        aboutTour:
+            "Experience ancient temples, neon streets, anime culture, and world-class cuisine.",
+        itinerary: [
+            { day: 1, title: "Arrival", details: "Tokyo city walk." },
+            { day: 2, title: "Cultural Tour", details: "Asakusa & temples." },
+            { day: 3, title: "Modern Tokyo", details: "Shibuya & Akihabara." },
+            { day: 4, title: "Mt Fuji", details: "Day excursion." },
+            { day: 5, title: "Shopping", details: "Ginza." },
+            { day: 6, title: "Departure", details: "Airport transfer." },
+        ],
+        included: ["Hotel", "Breakfast", "Sightseeing"],
+        excluded: ["Flights"],
+        extraServices: [
+            { id: 1, name: "Kimono Experience", price: 5200, description: "Traditional attire photoshoot." },
+        ],
+        policies: {
+            cancellation: "Free up to 14 days.",
+            payment: "30% advance.",
+        },
     },
+
     {
         id: 6,
         name: "Dubai Luxury Experience",
@@ -62,9 +216,39 @@ export const ListData = [
         duration: "5 Days / 4 Nights",
         rating: 4.7,
         image: "https://images.pexels.com/photos/2044434/pexels-photo-2044434.jpeg",
-        description:
-            "Enjoy luxury shopping, desert safaris, and modern architecture.",
+        gallery: [
+            "https://images.pexels.com/photos/221457/pexels-photo-221457.jpeg",
+            "https://images.pexels.com/photos/2044434/pexels-photo-2044434.jpeg",
+            "https://images.pexels.com/photos/1470502/pexels-photo-1470502.jpeg",
+            "https://images.pexels.com/photos/162031/dubai-tower-arab-khalifa-162031.jpeg",
+        ],
+        description: "Luxury shopping and desert adventures.",
+        tourInfo: {
+            tourType: "Luxury / City",
+            groupSize: "Family",
+            difficulty: "Easy",
+            bestSeason: "Nov–Mar",
+        },
+        aboutTour:
+            "Discover modern architecture, luxury malls, and thrilling desert safaris.",
+        itinerary: [
+            { day: 1, title: "Arrival", details: "Marina walk." },
+            { day: 2, title: "City Tour", details: "Burj Khalifa & Mall." },
+            { day: 3, title: "Desert Safari", details: "Dune bashing & BBQ." },
+            { day: 4, title: "Leisure", details: "Shopping." },
+            { day: 5, title: "Departure", details: "Airport transfer." },
+        ],
+        included: ["Hotel", "Breakfast", "Desert safari"],
+        excluded: ["Flights"],
+        extraServices: [
+            { id: 1, name: "Yacht Cruise", price: 15500, description: "Luxury marina cruise." },
+        ],
+        policies: {
+            cancellation: "Free up to 10 days.",
+            payment: "30% advance.",
+        },
     },
+
     {
         id: 7,
         name: "Santorini Island Retreat",
@@ -73,9 +257,39 @@ export const ListData = [
         duration: "5 Days / 4 Nights",
         rating: 4.9,
         image: "https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg",
-        description:
-            "Famous sunsets, whitewashed houses, and crystal-clear waters.",
+        gallery: [
+            "https://images.pexels.com/photos/161815/santorini-oia-greece-island-161815.jpeg",
+            "https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg",
+            "https://images.pexels.com/photos/2412609/pexels-photo-2412609.jpeg",
+            "https://images.pexels.com/photos/3264723/pexels-photo-3264723.jpeg",
+        ],
+        description: "Iconic sunsets and whitewashed houses.",
+        tourInfo: {
+            tourType: "Romantic / Island",
+            groupSize: "Couple",
+            difficulty: "Easy",
+            bestSeason: "May–Sep",
+        },
+        aboutTour:
+            "Enjoy breathtaking sunsets, blue-domed churches, and crystal-clear waters.",
+        itinerary: [
+            { day: 1, title: "Arrival", details: "Cliffside hotel." },
+            { day: 2, title: "Island Tour", details: "Oia & Fira." },
+            { day: 3, title: "Beach Day", details: "Red Beach." },
+            { day: 4, title: "Leisure", details: "Sunset cruise." },
+            { day: 5, title: "Departure", details: "Airport transfer." },
+        ],
+        included: ["Hotel", "Breakfast"],
+        excluded: ["Flights"],
+        extraServices: [
+            { id: 1, name: "Sunset Cruise", price: 11200, description: "Catamaran cruise." },
+        ],
+        policies: {
+            cancellation: "Free up to 14 days.",
+            payment: "30% advance.",
+        },
     },
+
     {
         id: 8,
         name: "Safari Adventure",
@@ -84,9 +298,40 @@ export const ListData = [
         duration: "6 Days / 5 Nights",
         rating: 4.8,
         image: "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg",
-        description:
-            "Witness wildlife up close with guided safaris and luxury lodges.",
+        gallery: [
+            "https://images.pexels.com/photos/667205/pexels-photo-667205.jpeg",
+            "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg",
+            "https://images.pexels.com/photos/34098/south-africa-hluhluwe-giraffes-pattern.jpg",
+            "https://images.pexels.com/photos/2317904/pexels-photo-2317904.jpeg",
+        ],
+        description: "Wildlife safari and luxury lodges.",
+        tourInfo: {
+            tourType: "Wildlife / Adventure",
+            groupSize: "Small Group",
+            difficulty: "Moderate",
+            bestSeason: "Jul–Oct",
+        },
+        aboutTour:
+            "Witness the Big Five in their natural habitat with guided game drives.",
+        itinerary: [
+            { day: 1, title: "Arrival", details: "Lodge check-in." },
+            { day: 2, title: "Safari", details: "Morning & evening drives." },
+            { day: 3, title: "Safari", details: "River crossing views." },
+            { day: 4, title: "Cultural Visit", details: "Maasai village." },
+            { day: 5, title: "Leisure", details: "Nature walk." },
+            { day: 6, title: "Departure", details: "Transfer." },
+        ],
+        included: ["Lodge", "Meals", "Safari drives"],
+        excluded: ["Flights"],
+        extraServices: [
+            { id: 1, name: "Hot Air Balloon", price: 28500, description: "Sunrise safari balloon ride." },
+        ],
+        policies: {
+            cancellation: "Free up to 21 days.",
+            payment: "40% advance.",
+        },
     },
+
     {
         id: 9,
         name: "Sydney Coastal Tour",
@@ -95,8 +340,39 @@ export const ListData = [
         duration: "5 Days / 4 Nights",
         rating: 4.6,
         image: "https://images.pexels.com/photos/2193300/pexels-photo-2193300.jpeg",
-        description: "Explore beaches, the Opera House, and vibrant city life.",
+        gallery: [
+            "https://images.pexels.com/photos/1878293/pexels-photo-1878293.jpeg",
+            "https://images.pexels.com/photos/2193300/pexels-photo-2193300.jpeg",
+            "https://images.pexels.com/photos/783682/pexels-photo-783682.jpeg",
+            "https://images.pexels.com/photos/995765/pexels-photo-995765.jpeg",
+        ],
+        description: "Beaches and iconic landmarks.",
+        tourInfo: {
+            tourType: "City / Coastal",
+            groupSize: "Friends / Family",
+            difficulty: "Easy",
+            bestSeason: "Sep–Apr",
+        },
+        aboutTour:
+            "Explore the Sydney Opera House, Harbour Bridge, and famous beaches.",
+        itinerary: [
+            { day: 1, title: "Arrival", details: "Harbour walk." },
+            { day: 2, title: "City Tour", details: "Opera House & Bondi." },
+            { day: 3, title: "Blue Mountains", details: "Nature excursion." },
+            { day: 4, title: "Leisure", details: "Beach day." },
+            { day: 5, title: "Departure", details: "Airport transfer." },
+        ],
+        included: ["Hotel", "City tour"],
+        excluded: ["Flights"],
+        extraServices: [
+            { id: 1, name: "Harbour Cruise", price: 7800, description: "Lunch cruise." },
+        ],
+        policies: {
+            cancellation: "Free up to 12 days.",
+            payment: "30% advance.",
+        },
     },
+
     {
         id: 10,
         name: "Machu Picchu Discovery",
@@ -105,9 +381,41 @@ export const ListData = [
         duration: "7 Days / 6 Nights",
         rating: 4.9,
         image: "https://images.pexels.com/photos/259967/pexels-photo-259967.jpeg",
-        description:
-            "Discover ancient Incan history and breathtaking mountain scenery.",
+        gallery: [
+            "https://images.pexels.com/photos/259970/pexels-photo-259970.jpeg",
+            "https://images.pexels.com/photos/259967/pexels-photo-259967.jpeg",
+            "https://images.pexels.com/photos/2356060/pexels-photo-2356060.jpeg",
+            "https://images.pexels.com/photos/2356045/pexels-photo-2356045.jpeg",
+        ],
+        description: "Ancient Incan wonders.",
+        tourInfo: {
+            tourType: "Historical / Adventure",
+            groupSize: "Small Group",
+            difficulty: "Moderate",
+            bestSeason: "May–Sep",
+        },
+        aboutTour:
+            "Explore Cusco and the legendary Machu Picchu with expert guides.",
+        itinerary: [
+            { day: 1, title: "Arrival", details: "Cusco city walk." },
+            { day: 2, title: "Sacred Valley", details: "Ancient ruins." },
+            { day: 3, title: "Train Journey", details: "To Aguas Calientes." },
+            { day: 4, title: "Machu Picchu", details: "Guided tour." },
+            { day: 5, title: "Cusco", details: "Leisure." },
+            { day: 6, title: "Local Culture", details: "Markets." },
+            { day: 7, title: "Departure", details: "Transfer." },
+        ],
+        included: ["Hotel", "Train tickets", "Guides"],
+        excluded: ["Flights"],
+        extraServices: [
+            { id: 1, name: "Huayna Picchu Hike", price: 9900, description: "Optional mountain hike." },
+        ],
+        policies: {
+            cancellation: "Free up to 20 days.",
+            payment: "40% advance.",
+        },
     },
+
     {
         id: 11,
         name: "Northern Lights Expedition",
@@ -116,9 +424,40 @@ export const ListData = [
         duration: "6 Days / 5 Nights",
         rating: 4.8,
         image: "https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg",
-        description:
-            "Chase the magical Aurora Borealis and explore Arctic landscapes.",
+        gallery: [
+            "https://images.pexels.com/photos/3374210/pexels-photo-3374210.jpeg",
+            "https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg",
+            "https://images.pexels.com/photos/1933316/pexels-photo-1933316.jpeg",
+            "https://images.pexels.com/photos/2396299/pexels-photo-2396299.jpeg",
+        ],
+        description: "Chase the Aurora Borealis.",
+        tourInfo: {
+            tourType: "Nature / Arctic",
+            groupSize: "Small Group",
+            difficulty: "Moderate",
+            bestSeason: "Oct–Mar",
+        },
+        aboutTour:
+            "Experience Arctic landscapes and magical Northern Lights displays.",
+        itinerary: [
+            { day: 1, title: "Arrival", details: "Arctic briefing." },
+            { day: 2, title: "Aurora Hunt", details: "Night excursion." },
+            { day: 3, title: "Snow Activities", details: "Dog sledding." },
+            { day: 4, title: "Fjord Tour", details: "Scenic drive." },
+            { day: 5, title: "Leisure", details: "Free day." },
+            { day: 6, title: "Departure", details: "Transfer." },
+        ],
+        included: ["Hotel", "Aurora tours"],
+        excluded: ["Flights"],
+        extraServices: [
+            { id: 1, name: "Ice Hotel Visit", price: 8900, description: "Unique Arctic experience." },
+        ],
+        policies: {
+            cancellation: "Free up to 18 days.",
+            payment: "35% advance.",
+        },
     },
+
     {
         id: 12,
         name: "Cape Town Scenic Escape",
@@ -127,9 +466,39 @@ export const ListData = [
         duration: "5 Days / 4 Nights",
         rating: 4.7,
         image: "https://images.pexels.com/photos/259447/pexels-photo-259447.jpeg",
-        description:
-            "Enjoy coastal drives, mountain views, and vibrant city culture.",
+        gallery: [
+            "https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg",
+            "https://images.pexels.com/photos/259447/pexels-photo-259447.jpeg",
+            "https://images.pexels.com/photos/2901209/pexels-photo-2901209.jpeg",
+            "https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg",
+        ],
+        description: "Coastal drives and mountain views.",
+        tourInfo: {
+            tourType: "City / Nature",
+            groupSize: "Friends / Family",
+            difficulty: "Easy",
+            bestSeason: "Sep–Apr",
+        },
+        aboutTour:
+            "Explore Table Mountain, Cape Point, and vibrant city culture.",
+        itinerary: [
+            { day: 1, title: "Arrival", details: "Waterfront visit." },
+            { day: 2, title: "City Tour", details: "Table Mountain." },
+            { day: 3, title: "Cape Point", details: "Coastal drive." },
+            { day: 4, title: "Winelands", details: "Wine tasting." },
+            { day: 5, title: "Departure", details: "Transfer." },
+        ],
+        included: ["Hotel", "City tour"],
+        excluded: ["Flights"],
+        extraServices: [
+            { id: 1, name: "Shark Cage Diving", price: 16500, description: "Thrilling ocean activity." },
+        ],
+        policies: {
+            cancellation: "Free up to 12 days.",
+            payment: "30% advance.",
+        },
     },
+
     {
         id: 13,
         name: "Iceland Ring Road Journey",
@@ -138,9 +507,42 @@ export const ListData = [
         duration: "8 Days / 7 Nights",
         rating: 4.9,
         image: "https://images.pexels.com/photos/1001435/pexels-photo-1001435.jpeg",
-        description:
-            "Explore volcanoes, waterfalls, glaciers, and dramatic landscapes.",
+        gallery: [
+            "https://images.pexels.com/photos/459203/pexels-photo-459203.jpeg",
+            "https://images.pexels.com/photos/1001435/pexels-photo-1001435.jpeg",
+            "https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg",
+            "https://images.pexels.com/photos/2088205/pexels-photo-2088205.jpeg",
+        ],
+        description: "Volcanoes, waterfalls, and glaciers.",
+        tourInfo: {
+            tourType: "Nature / Adventure",
+            groupSize: "Small Group",
+            difficulty: "Moderate",
+            bestSeason: "Jun–Aug",
+        },
+        aboutTour:
+            "Drive Iceland's famous Ring Road through dramatic natural landscapes.",
+        itinerary: [
+            { day: 1, title: "Arrival", details: "Reykjavík city tour." },
+            { day: 2, title: "Golden Circle", details: "Geysers & falls." },
+            { day: 3, title: "South Coast", details: "Black sand beaches." },
+            { day: 4, title: "Glaciers", details: "Ice lagoons." },
+            { day: 5, title: "East Fjords", details: "Scenic drives." },
+            { day: 6, title: "North Iceland", details: "Volcanoes." },
+            { day: 7, title: "West Iceland", details: "Waterfalls." },
+            { day: 8, title: "Departure", details: "Transfer." },
+        ],
+        included: ["Hotels", "Transport", "Guides"],
+        excluded: ["Flights"],
+        extraServices: [
+            { id: 1, name: "Glacier Hiking", price: 13500, description: "Guided glacier walk." },
+        ],
+        policies: {
+            cancellation: "Free up to 25 days.",
+            payment: "40% advance.",
+        },
     },
+
     {
         id: 14,
         name: "Petra & Wadi Rum Adventure",
@@ -149,9 +551,39 @@ export const ListData = [
         duration: "5 Days / 4 Nights",
         rating: 4.8,
         image: "https://images.pexels.com/photos/17472761/pexels-photo-17472761.jpeg",
-        description:
-            "Discover ancient wonders and desert beauty in the Middle East.",
+        gallery: [
+            "https://images.pexels.com/photos/71241/pexels-photo-71241.jpeg",
+            "https://images.pexels.com/photos/17472761/pexels-photo-17472761.jpeg",
+            "https://images.pexels.com/photos/4350043/pexels-photo-4350043.jpeg",
+            "https://images.pexels.com/photos/5659156/pexels-photo-5659156.jpeg",
+        ],
+        description: "Ancient wonders and desert landscapes.",
+        tourInfo: {
+            tourType: "Historical / Desert",
+            groupSize: "Small Group",
+            difficulty: "Moderate",
+            bestSeason: "Mar–May, Sep–Nov",
+        },
+        aboutTour:
+            "Explore the Rose City of Petra and camp under the stars in Wadi Rum.",
+        itinerary: [
+            { day: 1, title: "Arrival", details: "Amman city tour." },
+            { day: 2, title: "Petra", details: "Guided exploration." },
+            { day: 3, title: "Petra", details: "Free exploration." },
+            { day: 4, title: "Wadi Rum", details: "Desert safari & camp." },
+            { day: 5, title: "Departure", details: "Transfer." },
+        ],
+        included: ["Hotel", "Desert camp", "Guides"],
+        excluded: ["Flights"],
+        extraServices: [
+            { id: 1, name: "Camel Ride", price: 4200, description: "Desert camel experience." },
+        ],
+        policies: {
+            cancellation: "Free up to 15 days.",
+            payment: "30% advance.",
+        },
     },
+
     {
         id: 15,
         name: "Rio Carnival Experience",
@@ -159,8 +591,37 @@ export const ListData = [
         price: 124400,
         duration: "6 Days / 5 Nights",
         rating: 4.7,
-        image:
+        image: "https://images.pexels.com/photos/351283/pexels-photo-351283.jpeg",
+        gallery: [
+            "https://images.pexels.com/photos/2861810/pexels-photo-2861810.jpeg",
             "https://images.pexels.com/photos/351283/pexels-photo-351283.jpeg",
-        description: "Vibrant culture, beaches, and iconic landmarks await.",
+            "https://images.pexels.com/photos/2868290/pexels-photo-2868290.jpeg",
+            "https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg",
+        ],
+        description: "Vibrant culture, beaches, and festivals.",
+        tourInfo: {
+            tourType: "Festival / City",
+            groupSize: "Friends",
+            difficulty: "Easy",
+            bestSeason: "Feb–Mar",
+        },
+        aboutTour: "Enjoy Rio’s carnival, samba culture, iconic beaches, and landmarks.",
+        itinerary: [
+            { day: 1, title: "Arrival", details: "Copacabana visit." },
+            { day: 2, title: "City Tour", details: "Christ the Redeemer." },
+            { day: 3, title: "Carnival", details: "Samba parade." },
+            { day: 4, title: "Beach Day", details: "Ipanema." },
+            { day: 5, title: "Leisure", details: "Shopping." },
+            { day: 6, title: "Departure", details: "Transfer." },
+        ],
+        included: ["Hotel", "City tour", "Carnival access"],
+        excluded: ["Flights"],
+        extraServices: [
+            { id: 1, name: "Samba Class", price: 3600, description: "Dance lesson." },
+        ],
+        policies: {
+            cancellation: "Free up to 14 days.",
+            payment: "30% advance.",
+        },
     },
 ];

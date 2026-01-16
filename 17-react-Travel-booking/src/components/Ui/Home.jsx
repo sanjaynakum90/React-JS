@@ -5,7 +5,7 @@ function CarouselFadeExample() {
     return (
         <Carousel fade className="carousel-container">
             <Carousel.Item>
-                <video className="d-block w-100 p-3 carousel-media" autoPlay loop muted style={{ height: '600px', objectFit: 'cover', borderRadius: '12px' }}>
+                <video className="d-block w-100 p-3 carousel-media "  autoPlay loop muted style={{ height: '600px', objectFit: 'cover', borderRadius: '50px' }}>
                     <source src="https://videos.pexels.com/video-files/2169880/2169880-uhd_2560_1440_30fps.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
@@ -15,12 +15,12 @@ function CarouselFadeExample() {
                     <button className="btn btn-light btn-lg mt-3">Explore Now</button>
                 </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item>
+            <Carousel.Item className='rounded-4'>
                 <img 
                     className="d-block w-100 p-3 carousel-media" 
                     src="https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg?auto=compress&cs=tinysrgb&w=1920" 
                     alt="Beautiful beach destination"  
-                    style={{ height: '600px', objectFit: 'cover', borderRadius: '12px' }}
+                    style={{ height: '600px', objectFit: 'cover', borderRadius: '50px' }}
                 />
                 <Carousel.Caption className="carousel-caption-overlay">
                     <h3 className="display-5 fw-bold text-white mb-3">Tropical Paradise</h3>
@@ -33,7 +33,7 @@ function CarouselFadeExample() {
                     className="d-block w-100 p-3 carousel-media" 
                     src="https://images.pexels.com/photos/68147/waterfall-thac-dray-nur-buon-me-thuot-daklak-68147.jpeg" 
                     alt="Mountain landscape" 
-                    style={{ height: '600px', objectFit: 'cover', borderRadius: '12px' }}
+                    style={{ height: '600px', objectFit: 'cover', borderRadius: '50px' }}
                 />
                 <Carousel.Caption className="carousel-caption-overlay">
                     <h3 className="display-5 fw-bold text-white mb-3">Mountain Adventures</h3>
