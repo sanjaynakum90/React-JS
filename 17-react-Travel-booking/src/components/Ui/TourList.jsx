@@ -76,7 +76,7 @@ const TourList = () => {
 
             <Row className="g-4">
                 {sortedTours.map((tour) => (
-                    <Col key={tour.id} xs={12} sm={6} md={4} lg={4}>
+                    <Col key={tour.id} xs={12} sm={6} md={4} lg={3}>
                         <Card className="h-100 border-0 shadow-sm rounded-4">
                             <div className="position-relative">
                                 <Card.Img
