@@ -1,15 +1,41 @@
+import { useState } from 'react';
 import { Container, Row, Col, Card, Badge, Button } from 'react-bootstrap'
 import { FaMapMarkerAlt, FaStar } from 'react-icons/fa'
-
 import { ListData } from '../../Data/ListData'
-
 import { useNavigate } from "react-router-dom"
 
-
 const TourList = () => {
-
     const navigate = useNavigate()
+    const [sortType, setSortType] = useState('all');
 
+    const getSortedTours = () => {
+        let sorted = [...ListData];
+
+        switch (sortType) {
+            case 'new':
+                sorted = sorted.sort((a, b) => b.id - a.id).slice(0, 6);
+                break;
+
+            case 'popular':
+                sorted = sorted.sort((a, b) => b.rating - a.rating);
+                break;
+
+            case 'featured':
+                sorted = sorted.sort((a, b) => {
+                    const discountA = a.discount || 0;
+                    const discountB = b.discount || 0;
+                    return discountB - discountA;
+                });
+                break;
+
+            default:
+                break;
+        }
+
+        return sorted;
+    };
+
+    const sortedTours = getSortedTours();
 
     return (
         <Container className="py-5 ">
@@ -20,42 +46,55 @@ const TourList = () => {
                         Discover amazing destinations around the world
                     </p>
                     <div className="d-flex justify-content-center gap-2 my-2 p-2">
-                        <Button variant='success'>New</Button>
-                        <Button variant='success'>Popular</Button>
-                        <Button variant='success'>Featured</Button>
+                        <Button
+                            variant={sortType === 'all' ? 'success' : 'outline-success'}
+                            onClick={() => setSortType('all')}
+                        >
+                            All Tours
+                        </Button>
+                        <Button
+                            variant={sortType === 'new' ? 'success' : 'outline-success'}
+                            onClick={() => setSortType('new')}
+                        >
+                            New
+                        </Button>
+                        <Button
+                            variant={sortType === 'popular' ? 'success' : 'outline-success'}
+                            onClick={() => setSortType('popular')}
+                        >
+                            Popular
+                        </Button>
+                        <Button
+                            variant={sortType === 'featured' ? 'success' : 'outline-success'}
+                            onClick={() => setSortType('featured')}
+                        >
+                            Featured
+                        </Button>
                     </div>
                 </Col>
             </Row>
 
             <Row className="g-4">
-                {ListData.map((tour) => (
+                {sortedTours.map((tour) => (
                     <Col key={tour.id} xs={12} sm={6} md={4} lg={4}>
                         <Card className="h-100 border-0 shadow-sm rounded-4">
-
                             <div className="position-relative">
                                 <Card.Img
                                     src={tour.image}
                                     className="rounded-top-4"
                                     style={{ height: 220, objectFit: 'cover' }}
                                 />
-
                                 <div className="position-absolute top-0 start-0 p-3 d-flex gap-2">
-                                    {(
-                                        <Badge bg="success" className="px-3 py-2 rounded-pill">
-                                            {tour.discount}% Off
-                                        </Badge>
-                                    )}
-                                    {(
-                                        <Badge bg="warning" text="dark" className="px-3 py-2 rounded-pill">
-                                            {tour.duration}
-                                        </Badge>
-                                    )}
+                                    <Badge bg="success" className="px-3 py-2 rounded-pill">
+                                        {tour.discount}% Off
+                                    </Badge>
+                                    <Badge bg="warning" text="dark" className="px-3 py-2 rounded-pill">
+                                        {tour.duration}
+                                    </Badge>
                                 </div>
                             </div>
 
-
                             <Card.Body className="d-flex flex-column">
-
                                 <Card.Title className="fw-bold fs-5 mb-2">
                                     {tour.name}
                                 </Card.Title>
@@ -84,9 +123,7 @@ const TourList = () => {
                                 >
                                     More Details →
                                 </Button>
-
                             </Card.Body>
-
                         </Card>
                     </Col>
                 ))}

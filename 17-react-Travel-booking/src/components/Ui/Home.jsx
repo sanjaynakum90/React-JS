@@ -5,7 +5,7 @@ function CarouselFadeExample() {
     return (
         <Carousel fade className="carousel-container">
             <Carousel.Item>
-                <video className="d-block w-100 p-3 carousel-media "  autoPlay loop muted style={{ height: '600px', objectFit: 'cover', borderRadius: 'px' }}>
+                <video className="d-block w-100 p-3 carousel-media "  autoPlay loop muted style={{ height: '600px', objectFit: 'cover', borderRadius: '50px' }}>
                     <source src="https://videos.pexels.com/video-files/2169880/2169880-uhd_2560_1440_30fps.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
