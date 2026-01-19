@@ -3,8 +3,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 import Layout from './routes/Layout'
 import Home from './components/Ui/Home'
-import TourList from './components/Ui/TourList'
-import TourDetails from "./components/Ui/TourDetails"
+import TourList from './components/Pages/TourList'
+import TourDetails from "./components/Pages/TourDetails"
+import Auth from "./components/Auth/Auth"
 
 import { Container, Row, Col } from "react-bootstrap"
 
@@ -26,6 +27,10 @@ const App = () => {
         {
           path: "tour/:id",
           element: <TourDetails />
+        },
+        {
+          path:"login",
+          element:<Auth/>
         }
       ]
     }
