@@ -29,9 +29,9 @@ const TourDetail = () => {
         </Col>
       </Row>
 
-      <Row className="mb-5 g-4">
+      <Row>
         <Col lg={8}>
-          <Carousel fade className="shadow" style={{ borderRadius: "20px" }}>
+          <Carousel fade className="shadow mb-4 " style={{ borderRadius: "20px" }}>
             {tour.gallery.map((img, index) => (
               <Carousel.Item key={index}>
                 <img
@@ -43,8 +43,68 @@ const TourDetail = () => {
               </Carousel.Item>
             ))}
           </Carousel>
-        </Col>
+          <Row>
+            <Col className="mb-4">
+              <Card className="shadow-sm border-0">
+                <Card.Body>
+                  <h3>About This Tour</h3>
+                  <p className="text-muted">{tour.aboutTour}</p>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+          <Row >
+            <Col lg={12}>
+              <Row className="mb-4">
+                <Col md={6}>
+                  <Card className="mb-3">
+                    <Card.Header className="bg-success text-white">
+                      Included
+                    </Card.Header>
+                    <ListGroup variant="flush">
+                      {tour.included.map((item, i) => (
+                        <ListGroup.Item key={i}>{item}</ListGroup.Item>
+                      ))}
+                    </ListGroup>
+                  </Card>
+                </Col>
 
+                <Col md={6}>
+                  <Card>
+                    <Card.Header className="bg-danger text-white">
+                      Excluded
+                    </Card.Header>
+                    <ListGroup variant="flush">
+                      {tour.excluded.map((item, i) => (
+                        <ListGroup.Item key={i}>{item}</ListGroup.Item>
+                      ))}
+                    </ListGroup>
+                  </Card>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+
+          <Row >
+            <Col lg={12} className="mb-5">
+              <Card className="shadow-sm border-0">
+                <Card.Body>
+                  <h3>Tour Itinerary</h3>
+                  <Accordion>
+                    {tour.itinerary.map((day, index) => (
+                      <Accordion.Item eventKey={index.toString()} key={index}>
+                        <Accordion.Header>
+                          Day {day.day} – {day.title}
+                        </Accordion.Header>
+                        <Accordion.Body>{day.details}</Accordion.Body>
+                      </Accordion.Item>
+                    ))}
+                  </Accordion>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Col>
         <Col lg={4}>
           <div style={{ position: "sticky", top: "50px" }}>
             <Card className="shadow border-0">
@@ -81,70 +141,6 @@ const TourDetail = () => {
               </Card.Body>
             </Card>
           </div>
-        </Col>
-      </Row>
-
-
-      <Row className="">
-        <Col lg={8} className="mb-4">
-          <Card className="shadow-sm border-0">
-            <Card.Body>
-              <h3>About This Tour</h3>
-              <p className="text-muted">{tour.aboutTour}</p>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-
-      <Row >
-        <Col lg={8}>
-          <Row className="mb-4">
-            <Col md={6}>
-              <Card className="mb-3">
-                <Card.Header className="bg-success text-white">
-                  Included
-                </Card.Header>
-                <ListGroup variant="flush">
-                  {tour.included.map((item, i) => (
-                    <ListGroup.Item key={i}>{item}</ListGroup.Item>
-                  ))}
-                </ListGroup>
-              </Card>
-            </Col>
-
-            <Col md={6}>
-              <Card>
-                <Card.Header className="bg-danger text-white">
-                  Excluded
-                </Card.Header>
-                <ListGroup variant="flush">
-                  {tour.excluded.map((item, i) => (
-                    <ListGroup.Item key={i}>{item}</ListGroup.Item>
-                  ))}
-                </ListGroup>
-              </Card>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-
-      <Row >
-        <Col lg={8} className="mb-5">
-          <Card className="shadow-sm border-0">
-            <Card.Body>
-              <h3>Tour Itinerary</h3>
-              <Accordion>
-                {tour.itinerary.map((day, index) => (
-                  <Accordion.Item eventKey={index.toString()} key={index}>
-                    <Accordion.Header>
-                      Day {day.day} – {day.title}
-                    </Accordion.Header>
-                    <Accordion.Body>{day.details}</Accordion.Body>
-                  </Accordion.Item>
-                ))}
-              </Accordion>
-            </Card.Body>
-          </Card>
         </Col>
       </Row>
     </Container>
