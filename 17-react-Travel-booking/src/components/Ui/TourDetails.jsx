@@ -31,14 +31,14 @@ const TourDetail = () => {
 
       <Row className="mb-5 g-4">
         <Col lg={8}>
-          <Carousel fade className="shadow" style={{borderRadius:"20px"}}>
+          <Carousel fade className="shadow" style={{ borderRadius: "20px" }}>
             {tour.gallery.map((img, index) => (
               <Carousel.Item key={index}>
                 <img
                   className="d-block w-100"
                   src={img}
                   alt={tour.name}
-                  style={{ height: "500px", objectFit: "cover",borderRadius:"20px" }}
+                  style={{ height: "500px", objectFit: "cover", borderRadius: "20px" }}
                 />
               </Carousel.Item>
             ))}
@@ -85,8 +85,8 @@ const TourDetail = () => {
       </Row>
 
 
-      <Row className="mb-5">
-        <Col lg={8}>
+      <Row className="">
+        <Col lg={8} className="mb-4">
           <Card className="shadow-sm border-0">
             <Card.Body>
               <h3>About This Tour</h3>
@@ -96,9 +96,9 @@ const TourDetail = () => {
         </Col>
       </Row>
 
-      <Row className="mb-5">
+      <Row >
         <Col lg={8}>
-          <Row>
+          <Row className="mb-4">
             <Col md={6}>
               <Card className="mb-3">
                 <Card.Header className="bg-success text-white">
@@ -128,8 +128,8 @@ const TourDetail = () => {
         </Col>
       </Row>
 
-      <Row className="mb-5">
-        <Col lg={8}>
+      <Row >
+        <Col lg={8} className="mb-5">
           <Card className="shadow-sm border-0">
             <Card.Body>
               <h3>Tour Itinerary</h3>
