@@ -40,11 +40,11 @@ const AuthModal = ({ show, handleClose }) => {
                 );
                 setUser(result.user.email);
             }
-            setTimeout(() => {
-                handleClose();
-                setUser("");
-                setAuthData({ email: "", password: "" });
-            }, 1500);
+
+            handleClose();
+            setUser("");
+            setAuthData({ email: "", password: "" });
+
         } catch (error) {
             console.log(error.message);
             alert(error.message);
@@ -79,7 +79,7 @@ const AuthModal = ({ show, handleClose }) => {
             <Modal.Body>
                 <Form onSubmit={handleForm}>
                     {user && <p className="alert alert-success">Welcome {user}!</p>}
-                    
+
                     <Form.Group className="mb-3">
                         <Form.Label>Email</Form.Label>
                         <Form.Control
@@ -110,9 +110,9 @@ const AuthModal = ({ show, handleClose }) => {
                         {loading ? "Processing..." : isLogin ? "Login" : "Sign Up"}
                     </Button>
 
-                    <Button 
-                        onClick={handleGoogleLogin} 
-                        disabled={loading} 
+                    <Button
+                        onClick={handleGoogleLogin}
+                        disabled={loading}
                         className="w-100 mt-3 btn-danger"
                     >
                         Login With Google
