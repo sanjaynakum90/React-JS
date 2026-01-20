@@ -1,20 +1,15 @@
 import { useState } from "react";
-
-import {Container,Row,Col,Form,Card,Button }from "react-bootstrap";
-
+import { Modal, Form, Button } from "react-bootstrap";
 import { auth, googleProvider } from "../../../Firebase/config";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 
-const Auth = () => {
+const AuthModal = ({ show, handleClose }) => {
     const [isLogin, setIsLogin] = useState(true);
-
     const [user, setUser] = useState("");
-
     const [authData, setAuthData] = useState({
         email: "",
         password: "",
     });
-
     const [loading, setLoading] = useState(false);
 
     const handleChange = (identifier, e) => {
@@ -28,7 +23,6 @@ const Auth = () => {
 
     const handleForm = async (e) => {
         e.preventDefault();
-
         setLoading(true);
         try {
             if (isLogin) {
@@ -46,8 +40,14 @@ const Auth = () => {
                 );
                 setUser(result.user.email);
             }
+            setTimeout(() => {
+                handleClose();
+                setUser("");
+                setAuthData({ email: "", password: "" });
+            }, 1500);
         } catch (error) {
             console.log(error.message);
+            alert(error.message);
         } finally {
             setLoading(false);
         }
@@ -57,72 +57,79 @@ const Auth = () => {
         setLoading(true);
         try {
             const result = await signInWithPopup(auth, googleProvider);
-
             setUser(result.user.email);
+            setTimeout(() => {
+                handleClose();
+                setUser("");
+                setAuthData({ email: "", password: "" });
+            }, 1500);
         } catch (error) {
             console.log(error.message);
+            alert(error.message);
         } finally {
             setLoading(false);
         }
     };
 
     return (
-        <>
-            <Container>
-                <Row>
-                    <Col>
-                        <Form
-                            className="d-flex justify-content-center align-items-center"
-                            style={{ height: "100vh" }}
-                            onSubmit={handleForm}
-                        >
-                            <Card className="shadow p-3 " style={{ width: "30%" }}>
-                                <h4 className="text-center">{isLogin ? "Login" : "Sign up"}</h4>
-                                {user && <p className="alert alert-primary">{user}</p>}
-                                <Form.Group className="mb-3">
-                                    <Form.Label>Email</Form.Label>
-                                    <Form.Control
-                                        value={authData.email}
-                                        onChange={(e) => handleChange("email", e)}
-                                        placeholder="Email"
-                                    ></Form.Control>
-                                </Form.Group>
+        <Modal show={show} onHide={handleClose} centered>
+            <Modal.Header closeButton>
+                <Modal.Title>{isLogin ? "Login" : "Sign Up"}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <Form onSubmit={handleForm}>
+                    {user && <p className="alert alert-success">Welcome {user}!</p>}
+                    
+                    <Form.Group className="mb-3">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control
+                            type="email"
+                            value={authData.email}
+                            onChange={(e) => handleChange("email", e)}
+                            placeholder="Enter email"
+                            required
+                        />
+                    </Form.Group>
 
-                                <Form.Group className="mb-3">
-                                    <Form.Label>Password</Form.Label>
-                                    <Form.Control
-                                        value={authData.password}
-                                        placeholder="Password"
-                                        onChange={(e) => handleChange("password", e)}
-                                    ></Form.Control>
-                                </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control
+                            type="password"
+                            value={authData.password}
+                            placeholder="Enter password"
+                            onChange={(e) => handleChange("password", e)}
+                            required
+                        />
+                    </Form.Group>
 
-                                <Button
-                                    className="btn btn-primary btn-success"
-                                    type="submit"
-                                    disabled={loading}
-                                >
-                                    {isLogin ? "login" : "sign up"}
-                                </Button>
+                    <Button
+                        className="w-100 btn-success"
+                        type="submit"
+                        disabled={loading}
+                    >
+                        {loading ? "Processing..." : isLogin ? "Login" : "Sign Up"}
+                    </Button>
 
-                                <Button onClick={handleGoogleLogin} disabled={loading} className="mt-3 btn-danger" >
-                                    Login With Google
-                                </Button>
+                    <Button 
+                        onClick={handleGoogleLogin} 
+                        disabled={loading} 
+                        className="w-100 mt-3 btn-danger"
+                    >
+                        Login With Google
+                    </Button>
 
-                                <Button
-                                    className="btn btn-primary mt-3"
-                                    onClick={() => setIsLogin(!isLogin)}
-                                    disabled={loading}
-                                >
-                                    {isLogin ? "New User ? Sign Up" : "Already User ? Login"}
-                                </Button>
-                            </Card>
-                        </Form>
-                    </Col>
-                </Row>
-            </Container>
-        </>
+                    <Button
+                        className="w-100 mt-3"
+                        variant="outline-primary"
+                        onClick={() => setIsLogin(!isLogin)}
+                        disabled={loading}
+                    >
+                        {isLogin ? "New User? Sign Up" : "Already User? Login"}
+                    </Button>
+                </Form>
+            </Modal.Body>
+        </Modal>
     );
 };
 
-export default Auth;
+export default AuthModal;

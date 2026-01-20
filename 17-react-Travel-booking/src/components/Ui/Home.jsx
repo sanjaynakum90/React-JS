@@ -1,3 +1,4 @@
+import { NavLink } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 
 
@@ -12,7 +13,7 @@ function CarouselFadeExample() {
                 <Carousel.Caption className="carousel-caption-overlay">
                     <h3 className="display-5 fw-bold text-white mb-3">Explore Amazing Destinations</h3>
                     <p className="fs-5 text-light">Discover the world's most beautiful places with us.</p>
-                    <button className="btn btn-light btn-lg mt-3">Explore Now</button>
+                    <button className="btn btn-light btn-lg mt-3" as={NavLink} to="/tour">Explore Now</button>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item className='rounded-4'>
