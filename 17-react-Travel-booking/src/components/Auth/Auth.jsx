@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
-import { auth, googleProvider } from "../../../Firebase/config";
+import { auth, googleProvider } from "../../Firebase/config";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 
 const AuthModal = ({ show, handleClose }) => {

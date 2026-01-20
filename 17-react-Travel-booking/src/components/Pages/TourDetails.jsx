@@ -1,9 +1,15 @@
-import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Card, Badge, ListGroup, Accordion, Button, Carousel } from "react-bootstrap";
 import { ListData } from "../../Data/ListData";
+import { AuthContext } from "../../Context/AuthContext";
 
 const TourDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+  
+  const { user } = useContext(AuthContext);
+  
   const tour = ListData.find((item) => item.id === Number(id));
 
   if (!tour) {
@@ -13,6 +19,14 @@ const TourDetail = () => {
       </Container>
     );
   }
+
+  const handleBook = () => {
+    if (user) {
+      navigate(`/booking/${id}`);
+    } else {
+      navigate('/login', { state: { from: `/booking/${id}` } });
+    }
+  };
 
   return (
     <Container className="py-3">
@@ -140,7 +154,7 @@ const TourDetail = () => {
                   </p>
                 </div>
 
-                <Button className="w-100 mb-3" size="lg">
+                <Button className="w-100 mb-3" size="lg" onClick={handleBook}>
                   Book Now
                 </Button>
                 <Button variant="outline-primary" className="w-100" size="lg">
