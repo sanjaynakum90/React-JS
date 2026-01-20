@@ -15,17 +15,25 @@ const TourDetail = () => {
   }
 
   return (
-    <Container className="py-5">
-      <Row className="mb-5">
+    <Container className="py-3">
+      <Row className="mb-3">
         <Col>
           <h1 className="display-4 fw-bold mb-2">{tour.name}</h1>
           <p className="fs-5 text-muted">
             <i className="bi bi-geo-alt-fill me-2"></i>
             {tour.destination}
           </p>
-          <Badge bg="warning" text="dark">
-            ⭐ {tour.rating} Rating
-          </Badge>
+          <div className="d-flex gap-2 p-2 my-2">
+            <Badge className="p-2" bg="warning" text="light">
+              ⭐ {tour.rating} Rating
+            </Badge>
+            <Badge className="p-2" bg="danger" text="light">
+              {tour.tourInfo.difficulty}
+            </Badge>
+            <Badge className="p-2" bg="info" text="white">
+              {tour.tourInfo.bestSeason} Best Season
+            </Badge>
+          </div>
         </Col>
       </Row>
 
