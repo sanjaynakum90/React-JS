@@ -45,10 +45,6 @@ const BookingForm = () => {
         e.preventDefault();
         console.log('Booking Data:', bookingData);
         setSubmitted(true);
-
-        setTimeout(() => {
-            navigate('/tour');
-        }, 3000);
     };
 
     const totalPrice = tour.price * bookingData.numberOfPeople;
