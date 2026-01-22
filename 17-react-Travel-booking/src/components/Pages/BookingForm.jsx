@@ -88,35 +88,30 @@ const BookingForm = () => {
                                 <Form onSubmit={handleSubmit}>
                                     <Form.Group className="mb-3">
                                         <Form.Label>Full Name *</Form.Label>
-                                        <Form.Control type="text" name="fullName" value={bookingData.fullName} onChange={handleChange} required placeholder="Enter your full name"
-                                        />
+                                        <Form.Control type="text" name="fullName" value={bookingData.fullName} onChange={handleChange} required placeholder="Enter your full name"/>
                                     </Form.Group>
 
                                     <Form.Group className="mb-3">
                                         <Form.Label>Email *</Form.Label>
-                                        <Form.Control type="email" name="email" value={bookingData.email} onChange={handleChange} required placeholder="Enter your email"
-                                        />
+                                        <Form.Control type="email" name="email" value={bookingData.email} onChange={handleChange} required placeholder="Enter your email" />
                                     </Form.Group>
 
                                     <Form.Group className="mb-3">
                                         <Form.Label>Phone Number *</Form.Label>
-                                        <Form.Control type="tel" name="phone" value={bookingData.phone} onChange={handleChange} required placeholder="Enter your phone number"
-                                        />
+                                        <Form.Control type="tel" name="phone" value={bookingData.phone} onChange={handleChange} required placeholder="Enter your phone number"/>
                                     </Form.Group>
 
                                     <Row>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
                                                 <Form.Label>Number of People *</Form.Label>
-                                                <Form.Control type="number" name="numberOfPeople" value={bookingData.numberOfPeople} onChange={handleChange} min="1" max="20" required
-                                                />
+                                                <Form.Control type="number" name="numberOfPeople" value={bookingData.numberOfPeople} onChange={handleChange} min="1" max="20" required/>
                                             </Form.Group>
                                         </Col>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
                                                 <Form.Label>Preferred Date *</Form.Label>
-                                                <Form.Control type="date" name="bookingDate" value={bookingData.bookingDate} onChange={handleChange} min={new Date().toISOString().split('T')[0]} required
-                                                />
+                                                <Form.Control type="date" name="bookingDate" value={bookingData.bookingDate} onChange={handleChange} min={new Date().toISOString().split('T')[0]} required />
                                             </Form.Group>
                                         </Col>
                                     </Row>
