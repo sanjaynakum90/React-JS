@@ -12,7 +12,7 @@ const BookingForm = () => {
     const { user } = useContext(AuthContext);
 
     const [bookingData, setBookingData] = useState({
-        fullName: user.name,
+        fullName: "",
         email: user?.email || "",
         phone: "",
         numberOfPeople: 1,
