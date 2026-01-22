@@ -7,7 +7,7 @@ import Home from './components/Ui/Home';
 import TourList from './components/Pages/TourList';
 import TourDetails from "./components/Pages/TourDetails";
 import BookingForm from "./components/Pages/BookingForm";
-import ProtectedRoute from "./components/Pages/ProtectedRouts";
+import ProtectedRoute from "./Context/ProtectedRouts";
 
 const App = () => {
   const router = createBrowserRouter([
