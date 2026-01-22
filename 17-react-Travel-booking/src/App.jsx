@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 
 import Layout from './routes/Layout';
+
 import Home from './components/Ui/Home';
 import TourList from './components/Pages/TourList';
 import TourDetails from "./components/Pages/TourDetails";

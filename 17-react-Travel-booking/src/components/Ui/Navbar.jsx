@@ -1,10 +1,14 @@
 import { useState, useContext } from 'react';
+
 import { Container, Nav, Navbar, Button } from 'react-bootstrap';
+
 import { NavLink } from 'react-router-dom';
+
 import { AuthContext } from '../../Context/AuthContext';
-import { auth } from '../../Firebase/config';
-import { signOut } from 'firebase/auth';
 import AuthModal from '../Auth/Auth';
+import { auth } from '../../Firebase/config';
+
+import { signOut } from 'firebase/auth';
 
 function Navigation() {
     const { user } = useContext(AuthContext);

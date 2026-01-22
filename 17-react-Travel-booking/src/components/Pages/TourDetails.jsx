@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+
 import { Container, Row, Col, Card, Badge, ListGroup, Accordion, Button, Carousel } from "react-bootstrap";
+
 import { ListData } from "../../Data/ListData";
 import { AuthContext } from "../../Context/AuthContext";
 import AuthModal from "../Auth/Auth";
