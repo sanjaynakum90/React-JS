@@ -16,7 +16,7 @@ const BookingForm = () => {
         email: user?.email || "",
         phone: "",
         numberOfPeople: 1,
-        bookingDate: "",
+        bookingDate: ""
     });
 
     const [submitted, setSubmitted] = useState(false);
@@ -48,7 +48,7 @@ const BookingForm = () => {
         e.preventDefault();
         setLoading(true);
         setError('');
-        
+
         try {
             const bookingPayload = {
                 fullName: bookingData.fullName,
@@ -63,10 +63,9 @@ const BookingForm = () => {
 
                 numberOfPeople: Number(bookingData.numberOfPeople),
                 bookingDate: bookingData.bookingDate,
-                specialRequests: bookingData.specialRequests,
 
                 pricePerPerson: tour.price,
-                totalAmount: tour.price * bookingData.numberOfPeople,
+                totalAmount: tour.price * Number(bookingData.numberOfPeople),
 
                 status: 'confirmed',
                 paymentStatus: 'pending',
@@ -78,19 +77,27 @@ const BookingForm = () => {
 
             setSubmitted(true);
 
+            setBookingData({
+                fullName: "",
+                email: user?.email || "",
+                phone: "",
+                numberOfPeople: 1,
+                bookingDate: ""
+            });
+
             setTimeout(() => {
                 navigate(`/booking-confirmation/${docRef.id}`);
-            }, 3000);
+            }, 2000);
 
         } catch (err) {
             console.error('Error saving booking to Firebase:', err);
-            setError('Failed to complete booking. Please try again.');
+            setError(err.message || 'Failed to complete booking. Please try again.');
         } finally {
             setLoading(false);
         }
     };
 
-    const totalPrice = tour.price * bookingData.numberOfPeople;
+    const totalPrice = tour.price * Number(bookingData.numberOfPeople);
 
     return (
         <Container className="py-5">
@@ -99,7 +106,7 @@ const BookingForm = () => {
                     {submitted ? (
                         <Alert variant="success" className="text-center">
                             <h4>Booking Confirmed!</h4>
-                            <p>Thank you for your booking. You will be redirected shortly...</p>
+                            <p>Thank you for your booking. Redirecting to confirmation page...</p>
                         </Alert>
                     ) : (
                         <Card className="shadow">
@@ -137,37 +144,38 @@ const BookingForm = () => {
                                 <Form onSubmit={handleSubmit}>
                                     <Form.Group className="mb-3">
                                         <Form.Label>Full Name *</Form.Label>
-                                        <Form.Control 
-                                            type="text" 
-                                            name="fullName" 
-                                            value={bookingData.fullName} 
-                                            onChange={handleChange} 
-                                            required 
-                                            placeholder="Enter your full name" 
+                                        <Form.Control
+                                            type="text"
+                                            name="fullName"
+                                            value={bookingData.fullName}
+                                            onChange={handleChange}
+                                            required
+                                            placeholder="Enter your full name"
                                         />
                                     </Form.Group>
 
                                     <Form.Group className="mb-3">
                                         <Form.Label>Email *</Form.Label>
-                                        <Form.Control 
-                                            type="email" 
-                                            name="email" 
-                                            value={bookingData.email} 
-                                            onChange={handleChange} 
-                                            required 
-                                            placeholder="Enter your email" 
+                                        <Form.Control
+                                            type="email"
+                                            name="email"
+                                            value={bookingData.email}
+                                            onChange={handleChange}
+                                            required
+                                            placeholder="Enter your email"
                                         />
                                     </Form.Group>
 
                                     <Form.Group className="mb-3">
                                         <Form.Label>Phone Number *</Form.Label>
-                                        <Form.Control 
-                                            type="tel" 
-                                            name="phone" 
-                                            value={bookingData.phone} 
-                                            onChange={handleChange} 
-                                            required 
-                                            placeholder="Enter your phone number" 
+                                        <Form.Control
+                                            type="tel"
+                                            name="phone"
+                                            value={bookingData.phone}
+                                            onChange={handleChange}
+                                            required
+                                            pattern="[0-9]{10}"
+                                            placeholder="Enter 10-digit phone number"
                                         />
                                     </Form.Group>
 
@@ -175,33 +183,31 @@ const BookingForm = () => {
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
                                                 <Form.Label>Number of People *</Form.Label>
-                                                <Form.Control 
-                                                    type="number" 
-                                                    name="numberOfPeople" 
-                                                    value={bookingData.numberOfPeople} 
-                                                    onChange={handleChange} 
-                                                    min="1" 
-                                                    max="20" 
-                                                    required 
+                                                <Form.Control
+                                                    type="number"
+                                                    name="numberOfPeople"
+                                                    value={bookingData.numberOfPeople}
+                                                    onChange={handleChange}
+                                                    min="1"
+                                                    max="20"
+                                                    required
                                                 />
                                             </Form.Group>
                                         </Col>
                                         <Col md={6}>
                                             <Form.Group className="mb-3">
                                                 <Form.Label>Preferred Date *</Form.Label>
-                                                <Form.Control 
-                                                    type="date" 
-                                                    name="bookingDate" 
-                                                    value={bookingData.bookingDate} 
-                                                    onChange={handleChange} 
-                                                    min={new Date().toISOString().split('T')[0]} 
-                                                    required 
+                                                <Form.Control
+                                                    type="date"
+                                                    name="bookingDate"
+                                                    value={bookingData.bookingDate}
+                                                    onChange={handleChange}
+                                                    min={new Date().toISOString().split('T')[0]}
+                                                    required
                                                 />
                                             </Form.Group>
                                         </Col>
                                     </Row>
-
-                                   
 
                                     <Card className="mb-4 bg-success text-white">
                                         <Card.Body>
@@ -218,9 +224,9 @@ const BookingForm = () => {
                                     </Card>
 
                                     <div className="d-grid gap-2">
-                                        <Button 
-                                            variant="primary" 
-                                            size="lg" 
+                                        <Button
+                                            variant="primary"
+                                            size="lg"
                                             type="submit"
                                             disabled={loading}
                                         >
