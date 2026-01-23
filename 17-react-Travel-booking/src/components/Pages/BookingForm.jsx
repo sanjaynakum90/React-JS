@@ -73,7 +73,7 @@ const BookingForm = () => {
                 updatedAt: serverTimestamp()
             };
 
-            const docRef = await addDoc(collection(db, 'bookings'), bookingPayload);
+            const DataCollection = await addDoc(collection(db, 'bookings'), bookingPayload);
 
             setSubmitted(true);
 
@@ -85,9 +85,7 @@ const BookingForm = () => {
                 bookingDate: ""
             });
 
-            setTimeout(() => {
-                navigate(`/booking-confirmation/${docRef.id}`);
-            }, 2000);
+
 
         } catch (err) {
             console.error('Error saving booking to Firebase:', err);
@@ -107,6 +105,7 @@ const BookingForm = () => {
                         <Alert variant="success" className="text-center">
                             <h4>Booking Confirmed!</h4>
                             <p>Thank you for your booking. Redirecting to confirmation page...</p>
+                            <Button variant='outline-primary' onClick={()=>navigate("/tour")}>Back To Tour</Button>
                         </Alert>
                     ) : (
                         <Card className="shadow">
