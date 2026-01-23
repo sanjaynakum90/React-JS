@@ -41,9 +41,12 @@ function Navigation() {
                                     Login
                                 </Nav.Link>
                             ) : (
-                                <Button variant="danger" onClick={handleSignOut} size="sm">
-                                    Logout
-                                </Button>
+                                <div  className='d-flex gap-2 '>
+                                    <Button variant="outline-info" className='hover' as={NavLink} to="/BookingDetails">My Booking</Button>
+                                    <Button variant="outline-warning" onClick={handleSignOut} size="sm">
+                                        Logout
+                                    </Button>
+                                </div>
                             )}
                         </Nav>
                     </Navbar.Collapse>
