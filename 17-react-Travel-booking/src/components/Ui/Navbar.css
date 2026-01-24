@@ -1,0 +1,201 @@
+/* Navigation.css */
+
+.navbar-modern {
+    background: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.brand-logo:hover {
+    color: #1a1a1a;
+}
+
+.brand-circle {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.nav-item-modern {
+    color: #4a5568 !important;
+    font-weight: 500;
+    padding: 0.5rem 1.25rem;
+    text-decoration: none;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    background: transparent !important;
+}
+
+.nav-item-modern:hover,
+.nav-item-modern.active {
+    color: #ff6b35 !important;
+}
+
+.call-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    cursor: default;
+}
+
+.call-icon-circle {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.call-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.call-label {
+    font-size: 0.75rem;
+    color: #718096;
+    font-weight: 500;
+}
+
+.call-number {
+    font-size: 0.9rem;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.login-btn-modern {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.login-btn-modern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+    color: white;
+}
+
+.arrow-icon {
+    font-size: 1.25rem;
+}
+
+.dropdown-user .dropdown-toggle {
+    background: #f7fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    color: #4a5568 !important;
+    font-weight: 500;
+}
+
+.dropdown-user .dropdown-toggle:hover {
+    background: #edf2f7 !important;
+}
+
+.dropdown-user .dropdown-toggle::after {
+    margin-left: 0.5rem;
+}
+
+.booking-btn {
+    border: 2px solid #ff6b35 !important;
+    background: transparent !important;
+    color: #ff6b35 !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.booking-btn:hover {
+    background: #ff6b35 !important;
+    color: white !important;
+}
+
+.dropdown.d-inline .dropdown-toggle {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0.5rem 1.25rem;
+}
+
+.dropdown.d-inline .dropdown-toggle::after {
+    margin-left: 0.5rem;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 991px) {
+    .nav-item-modern {
+        padding: 0.75rem 0;
+    }
+
+    .call-button {
+        margin: 1rem 0;
+    }
+
+    .login-btn-modern {
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .navbar-collapse {
+        margin-top: 1rem;
+    }
+
+    .d-flex.align-items-center.gap-3 {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .d-flex.gap-2 {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .booking-btn,
+    .dropdown-user {
+        width: 100%;
+    }
+
+    .dropdown-user .dropdown-toggle {
+        width: 100%;
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+    }
+}
