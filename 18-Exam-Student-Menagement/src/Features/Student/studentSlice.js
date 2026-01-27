@@ -17,12 +17,21 @@ const studentSlice = createSlice({
                 state.students[index] = action.payload;
             }
         },
+
         deleteStudent: (state, action) => {
             state.students = state.students.filter(s => s.id !== action.payload);
-        }
+        },
+        loginSuccess: (state, action) => {
+            state.user = action.payload;
+            state.error = null;
+        },
+        loginFailure: (state, action) => {
+            state.error = action.payload;
+        },
+       
     },
-   
+
 });
 
-export const { addStudent, updateStudent, deleteStudent } = studentSlice.actions;
+export const { addStudent, updateStudent, deleteStudent, loginSuccess, loginFailure, logout } = studentSlice.actions;
 export default studentSlice.reducer;

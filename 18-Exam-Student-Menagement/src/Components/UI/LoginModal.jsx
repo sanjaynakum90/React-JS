@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form, Alert } from 'react-bootstrap';
 import { signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, googleProvider } from '../../Config/Config';
+import { auth, googleProvider } from '../../Firebase/Config';
 import { useDispatch } from 'react-redux';
-import { loginStart, loginSuccess, loginFailure } from '../../Features/auth/authSlice';
+import { loginSuccess, loginFailure} from "../../Features/Student/studentSlice"
 
 const LoginModal = ({ show, handleClose }) => {
     const dispatch = useDispatch();
@@ -13,15 +13,16 @@ const LoginModal = ({ show, handleClose }) => {
     const [error, setError] = useState('');
 
     const handleGoogleLogin = async () => {
-        dispatch(loginStart());
         try {
             const result = await signInWithPopup(auth, googleProvider);
+
             const userData = {
                 uid: result.user.uid,
                 email: result.user.email,
                 displayName: result.user.displayName,
                 photoURL: result.user.photoURL
             };
+
             dispatch(loginSuccess(userData));
             handleClose();
             setError('');
@@ -33,7 +34,6 @@ const LoginModal = ({ show, handleClose }) => {
 
     const handleEmailAuth = async (e) => {
         e.preventDefault();
-        dispatch(loginStart());
         setError('');
 
         try {
@@ -59,6 +59,7 @@ const LoginModal = ({ show, handleClose }) => {
             setError(error.message);
         }
     };
+
 
     return (
         <Modal show={show} onHide={handleClose} centered>

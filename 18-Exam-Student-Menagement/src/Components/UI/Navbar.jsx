@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Navbar, Nav, Container, Button, Dropdown } from "react-bootstrap";
+import { Navbar, Nav, Container, Dropdown } from "react-bootstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import { signOut, onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../Config/Config";
+import { auth } from "../../Firebase/Config";
 
 const NavigationBar = () => {
     const navigate = useNavigate();

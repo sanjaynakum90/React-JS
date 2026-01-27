@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../Config/Config';
-import LoginModal from '../components/LoginModal';
+import { auth } from '../../Firebase/Config';
+import LoginModal from '../UI/LoginModal';
 
 const Home = () => {
     const [showLoginModal, setShowLoginModal] = useState(false);
