@@ -1,3 +1,22 @@
 {
-  "students": []
+  "students": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "course": "Computer Science"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "course": "Information Technology"
+    },
+    {
+      "id": "3",
+      "name": "Mike Johnson",
+      "email": "mike.johnson@example.com",
+      "course": "Software Engineering"
+    }
+  ]
 }

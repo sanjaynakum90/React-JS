@@ -1,101 +1,175 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Container, Row, Col, Card, Button, Table, Modal, Form } from 'react-bootstrap';
-import { deleteStudent, updateStudent } from "../../Features/student/studentSlice";
+import { Container, Row, Col, Card, Button, Table, Modal, Form, Alert, Spinner, Badge } from 'react-bootstrap';
+import { fetchStudents, updateStudentAsync, deleteStudentAsync } from "../../Features/student/studentThunk";
 
 const StudentDetails = () => {
     const dispatch = useDispatch();
-    const students = useSelector((state) => state.student.students);
+    const { students, loading, error } = useSelector((state) => state.student);
 
     const [showModal, setShowModal] = useState(false);
     const [editData, setEditData] = useState(null);
+    const [successMessage, setSuccessMessage] = useState('');
 
-   
+    useEffect(() => {
+        dispatch(fetchStudents());
+    }, [dispatch]);
+
     const handleEdit = (student) => {
         setEditData({ ...student });
         setShowModal(true);
     };
 
-    
-    const handleUpdate = () => {
-        dispatch(updateStudent(editData));
-        setShowModal(false);
-        alert("Student updated!");
-    };
+    const handleUpdate = async () => {
+        try {
+            await dispatch(updateStudentAsync(editData)).unwrap();
+            setShowModal(false);
+            setSuccessMessage('Student updated successfully!');
 
-    
-    const handleDelete = (id) => {
-        if (window.confirm("Delete this student?")) {
-            dispatch(deleteStudent(id));
-            alert("Student deleted!");
+            setTimeout(() => {
+                setSuccessMessage('');
+            }, 3000);
+        } catch (err) {
+            console.error('Failed to update student:', err);
         }
     };
+
+    const handleDelete = async (id) => {
+        if (window.confirm("Are you sure you want to delete this student?")) {
+            try {
+                await dispatch(deleteStudentAsync(id)).unwrap();
+                setSuccessMessage('Student deleted successfully!');
+
+                setTimeout(() => {
+                    setSuccessMessage('');
+                }, 3000);
+            } catch (err) {
+                console.error('Failed to delete student:', err);
+            }
+        }
+    };
+
+    if (loading && students.length === 0) {
+        return (
+            <Container className='p-4 text-center'>
+                <Spinner animation="border" role="status" variant="primary">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>
+                <p className='mt-3'>Loading students...</p>
+            </Container>
+        );
+    }
 
     return (
         <Container className='p-4'>
             <Row>
                 <Col>
-                    <Card className='p-4'>
-                        <h2 className='text-center mb-4'>Student List</h2>
+                    <Card className='p-4 shadow'>
+                        <div className="d-flex justify-content-between align-items-center mb-4">
+                            <h2>
+                                <i className="bi bi-people-fill me-2"></i>
+                                Student List
+                            </h2>
+                            <Badge bg="primary" pill>
+                                Total: {students.length}
+                            </Badge>
+                        </div>
+
+                        {successMessage && (
+                            <Alert variant="success" dismissible onClose={() => setSuccessMessage('')}>
+                                {successMessage}
+                            </Alert>
+                        )}
+
+                        {error && (
+                            <Alert variant="danger">
+                                Error: {error}
+                            </Alert>
+                        )}
 
                         {students.length === 0 ? (
-                            <p className='text-center text-muted'>No students added yet</p>
+                            <div className='text-center p-5'>
+                                <i className="bi bi-inbox" style={{ fontSize: '3rem', color: '#6c757d' }}></i>
+                                <p className='text-muted mt-3'>No students added yet</p>
+                                <p className='text-muted'>Start by adding your first student!</p>
+                            </div>
                         ) : (
-                            <Table striped bordered hover>
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>GR ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Course</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {students.map((student, index) => (
-                                        <tr key={student.id}>
-                                            <td>{index + 1}</td>
-                                            <td>{student.id}</td>
-                                            <td>{student.name}</td>
-                                            <td>{student.email}</td>
-                                            <td>{student.course}</td>
-                                            <td>
-                                                <Button
-                                                    variant='warning'
-                                                    size='sm'
-                                                    className="me-2"
-                                                    onClick={() => handleEdit(student)}
-                                                >
-                                                    Edit
-                                                </Button>
-                                                <Button
-                                                    variant='danger'
-                                                    size='sm'
-                                                    onClick={() => handleDelete(student.id)}
-                                                >
-                                                    Delete
-                                                </Button>
-                                            </td>
+                            <div className="table-responsive">
+                                <Table striped bordered hover>
+                                    <thead className="table-dark">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Course</th>
+                                            <th className="text-center">Actions</th>
                                         </tr>
-                                    ))}
-                                </tbody>
-                            </Table>
+                                    </thead>
+                                    <tbody>
+                                        {students.map((student, index) => (
+                                            <tr key={student.id}>
+                                                <td>{index + 1}</td>
+                                                <td>{student.id}</td>
+                                                <td>
+                                                    <i className="bi bi-person-circle me-2"></i>
+                                                    {student.name}
+                                                </td>
+                                                <td>
+                                                    <i className="bi bi-envelope me-2"></i>
+                                                    {student.email}
+                                                </td>
+                                                <td>
+                                                    <i className="bi bi-book me-2"></i>
+                                                    {student.course}
+                                                </td>
+                                                <td className="text-center">
+                                                    <Button
+                                                        variant='warning'
+                                                        size='sm'
+                                                        className="me-2"
+                                                        onClick={() => handleEdit(student)}
+                                                        disabled={loading}
+                                                    >
+                                                        <i className="bi bi-pencil-square me-1"></i>
+                                                        Edit
+                                                    </Button>
+                                                    <Button
+                                                        variant='danger'
+                                                        size='sm'
+                                                        onClick={() => handleDelete(student.id)}
+                                                        disabled={loading}
+                                                    >
+                                                        <i className="bi bi-trash me-1"></i>
+                                                        Delete
+                                                    </Button>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </Table>
+                            </div>
                         )}
                     </Card>
                 </Col>
             </Row>
 
-          
-            <Modal show={showModal} onHide={() => setShowModal(false)}>
+            {/* Edit Modal */}
+            <Modal show={showModal} onHide={() => setShowModal(false)} centered>
                 <Modal.Header closeButton>
-                    <Modal.Title>Edit Student</Modal.Title>
+                    <Modal.Title>
+                        <i className="bi bi-pencil-square me-2"></i>
+                        Edit Student
+                    </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     {editData && (
                         <Form>
                             <Form.Group className="mb-3">
-                                <Form.Label>Name</Form.Label>
+                                <Form.Label>
+                                    <i className="bi bi-person me-2"></i>
+                                    Name
+                                </Form.Label>
                                 <Form.Control
                                     type="text"
                                     value={editData.name}
@@ -104,7 +178,10 @@ const StudentDetails = () => {
                             </Form.Group>
 
                             <Form.Group className="mb-3">
-                                <Form.Label>Email</Form.Label>
+                                <Form.Label>
+                                    <i className="bi bi-envelope me-2"></i>
+                                    Email
+                                </Form.Label>
                                 <Form.Control
                                     type="email"
                                     value={editData.email}
@@ -113,7 +190,10 @@ const StudentDetails = () => {
                             </Form.Group>
 
                             <Form.Group className="mb-3">
-                                <Form.Label>Course</Form.Label>
+                                <Form.Label>
+                                    <i className="bi bi-book me-2"></i>
+                                    Course
+                                </Form.Label>
                                 <Form.Control
                                     type="text"
                                     value={editData.course}
@@ -124,11 +204,28 @@ const StudentDetails = () => {
                     )}
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={() => setShowModal(false)}>
+                    <Button variant="secondary" onClick={() => setShowModal(false)} disabled={loading}>
                         Cancel
                     </Button>
-                    <Button variant="primary" onClick={handleUpdate}>
-                        Save
+                    <Button variant="primary" onClick={handleUpdate} disabled={loading}>
+                        {loading ? (
+                            <>
+                                <Spinner
+                                    as="span"
+                                    animation="border"
+                                    size="sm"
+                                    role="status"
+                                    aria-hidden="true"
+                                    className="me-2"
+                                />
+                                Saving...
+                            </>
+                        ) : (
+                            <>
+                                <i className="bi bi-check-circle me-2"></i>
+                                Save Changes
+                            </>
+                        )}
                     </Button>
                 </Modal.Footer>
             </Modal>
