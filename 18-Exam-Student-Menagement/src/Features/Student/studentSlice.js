@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchStudents, addStudentAsync, updateStudentAsync, deleteStudentAsync } from "./studentThunk";
 
 const studentSlice = createSlice({
     name: "student",
