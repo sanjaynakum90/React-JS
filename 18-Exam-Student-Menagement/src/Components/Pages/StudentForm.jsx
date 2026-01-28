@@ -19,8 +19,10 @@ const StudentForm = () => {
         e.preventDefault();
 
         try {
-            await dispatch(addStudentAsync(student)).unwrap();
+            await dispatch(addStudentAsync(student));
+
             setStudent({ name: "", email: "", course: "" });
+            
             setSuccessMessage('Student added successfully!');
 
             setTimeout(() => {
